@@ -10,4 +10,13 @@ export default class Util {
 		return page;
 	}
 
+	static cutWords(string, qtd = 160){
+		let stringTT = string;
+		let qtdTC = qtd;
+		if ( stringTT ){
+			let newString = ( stringTT.length <= qtdTC ) ? stringTT :  stringTT.substring(0, qtdTC) + "...";
+			return newString;
+		}
+	}
+
 }

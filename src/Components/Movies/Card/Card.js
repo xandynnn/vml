@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
 
+//
+//  Styles
+//
+import './Card.less';
+
+//
+//  Services
+//
+import Util from '~/Services/Util';
+
+//
+//  Plugins
+//
+import LazyLoad from 'react-lazy-load';
+
 export default class Card extends Component{
 
     constructor(props){
@@ -26,7 +41,9 @@ export default class Card extends Component{
             <div className="col-xs-12 col-md-6">
                 <div className="card">
                     <div className="postImage">
-                        <img src={'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+poster_path} alt="" />
+                        <LazyLoad height="270">
+                            <img src={'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+poster_path} alt="" />
+                        </LazyLoad>
                         <div className="hoverBox">
                             <span className="popularity">
                                 <span>Popularidade</span>
@@ -46,7 +63,7 @@ export default class Card extends Component{
                            <p>{release_date}</p>
                        </div>
                        <div className="content">
-                           <p>{overview}</p>
+                           <p>{Util.cutWords(overview)}</p>
                        </div>
                     </div>
                 </div>
