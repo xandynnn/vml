@@ -1,0 +1,217 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+@import 'https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1';
+header,
+section,
+footer,
+article,
+figcaption,
+hgroup,
+figure,
+details,
+aside,
+img,
+nav,
+time {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+}
+input[type="search"],
+input[type="submit"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1030px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+a:active,
+a:selected,
+a:focus,
+a:visited {
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+html > object {
+  display: none;
+}
+.row-height {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.row-height .col-height {
+  position: relative;
+  display: table-cell;
+  height: 100%;
+  float: none;
+}
+.row-height .col-height.noPadding {
+  padding: 0;
+}
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-o-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+.pagination ul {
+  list-style: none;
+}
+.pagination ul li {
+  display: inline-block;
+  height: 25px;
+  margin: 0 4px;
+}
+.pagination ul li a {
+  display: block;
+  height: 25px;
+}
+.pagination ul li a:link,
+.pagination ul li a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 600;
+}
+.pagination ul li span {
+  display: block;
+  padding: 0 8px;
+  height: 25px;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 600;
+}
+.pagination ul li.active span {
+  border: 1px solid #000000;
+}

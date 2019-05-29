@@ -1,0 +1,39 @@
+@import '../../App.less';
+
+#conteudo{
+    form{
+        fieldset{
+            legend{
+                display:none;
+            }
+            .form-group{
+                label{
+                    display:block;
+                }
+                input{
+                    &[type="text"]{
+                        width:100%;
+                        display:block;
+                        border:1px solid rgba(33,37,41,0.15);
+                        padding:9px 15px;
+                        .setFont(16px, @cinza);
+                        .borderRadius(3px);
+                    }
+                }
+                select{
+                    width:100%;
+                    display:block;
+                    border:1px solid #e4e4e4;
+                    padding:9px 15px;
+                    .setFont(16px, @cinza);
+                    .appearance();
+                    .borderRadius(3px);
+                    background:#e4e4e4;
+                    &:hover{
+                        border-color:rgba(33,37,41,0.15);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,322 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1');
+header,
+section,
+footer,
+article,
+figcaption,
+hgroup,
+figure,
+details,
+aside,
+img,
+nav,
+time {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+}
+input[type="search"],
+input[type="submit"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1030px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+a:active,
+a:selected,
+a:focus,
+a:visited {
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+html > object {
+  display: none;
+}
+.row-height {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.row-height .col-height {
+  position: relative;
+  display: table-cell;
+  height: 100%;
+  float: none;
+}
+.row-height .col-height.noPadding {
+  padding: 0;
+}
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-o-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (min-width: 992px) {
+  header {
+    background: #081c24;
+    padding: 20px 0 0 0;
+  }
+  header .np:nth-child(1) {
+    padding-right: 0;
+  }
+  header .np:nth-child(2) {
+    padding-left: 0;
+  }
+  header .header {
+    padding: 0 0 20px 0;
+  }
+  header .header a.logo {
+    float: left;
+    margin: 0 30px 0 0;
+  }
+  header .header .mainMenu nav > ul {
+    float: left;
+    list-style: none;
+    margin: 25px 0 0 0;
+  }
+  header .header .mainMenu nav > ul > li {
+    margin: 0 30px 0 0;
+    float: left;
+    position: relative;
+  }
+  header .header .mainMenu nav > ul > li > a:link,
+  header .header .mainMenu nav > ul > li > a:visited {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 18px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+  }
+  header .header .mainMenu nav > ul > li > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 420px;
+    list-style: none;
+  }
+  header .header .mainMenu nav > ul > li > ul > li {
+    float: left;
+    padding: 10px 30px 10px 0;
+  }
+  header .header .mainMenu nav > ul > li > ul > li > a:link,
+  header .header .mainMenu nav > ul > li > ul > li > a:visited {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 16px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #868e91;
+    font-weight: 600;
+  }
+  header .header .mainMenu nav > ul > li:hover > ul {
+    display: block;
+  }
+  header .header .topMenu ul {
+    list-style: none;
+    float: right;
+  }
+  header .header .topMenu ul li {
+    float: left;
+    margin: 0 0 0 30px;
+  }
+  header .header .topMenu ul li a:link,
+  header .header .topMenu ul li a:visited {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 14px;
+    font-weight: normal;
+    font-size: 12px;
+    color: #868e91;
+    font-weight: 600;
+    display: block;
+  }
+  header .header .loginMenu ul {
+    list-style: none;
+    float: right;
+  }
+  header .header .loginMenu ul li {
+    float: left;
+    margin: 0 0 0 30px;
+  }
+  header .header .loginMenu ul li a:link,
+  header .header .loginMenu ul li a:visited {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 18px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  header .search {
+    background: #ffffff;
+    border-bottom: 1px solid #dedede;
+  }
+  header .search form fieldset legend {
+    display: none;
+  }
+  header .search form fieldset .form-group {
+    margin: 0;
+  }
+  header .search form fieldset .form-group:before {
+    content: "\f002";
+    font: bold normal normal 16px/1 'Font Awesome\ 5 Free';
+    color: #acacac;
+    line-height: 16px;
+    display: block;
+    position: absolute;
+    top: calc(50% - 8px);
+    left: 15px;
+    z-index: 5;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  header .search form fieldset .form-group input[type="text"] {
+    border: none;
+    padding: 0 30px;
+    height: 46px;
+    display: block;
+    width: 100%;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 19px;
+    font-weight: normal;
+    font-size: 17px;
+    color: #868e91;
+    font-style: italic;
+    position: relative;
+  }
+  header .search form fieldset .form-group:hover:before {
+    color: #081c24;
+  }
+}

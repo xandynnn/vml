@@ -1,0 +1,155 @@
+@import './../../../App.less';
+
+header{
+    @media only screen and (min-width:992px){
+        background:@primaria;
+        padding:20px 0 0 0;
+        .np{
+            &:nth-child(1){
+                padding-right:0;
+            }
+            &:nth-child(2){
+                padding-left:0;
+            }
+        }
+        .header{
+            padding:0 0 20px 0;
+            a{
+                &.logo{
+                    float:left;
+                    margin:0 30px 0 0;
+                    &:link,
+                    &:visited{
+
+                    }
+                }
+            }
+            .mainMenu{
+                nav{
+                    >ul{
+                        float:left;
+                        list-style:none;
+                        margin:25px 0 0 0;
+                        >li{
+                            margin:0 30px 0 0;
+                            float:left;
+                            position:relative;
+                            >a{
+                                &:link,
+                                &:visited{
+                                    .setFont(16px, @branco);
+                                    font-weight:600;
+                                    text-transform:uppercase;
+                                    text-decoration:none;
+                                    display:block;
+                                }
+                            }
+                            >ul{
+                                display:none;
+                                position:absolute;
+                                top:100%;
+                                left:0;
+                                min-width:420px;
+                                list-style:none;
+                                >li{
+                                    float:left;
+                                    padding:10px 30px 10px 0;
+                                    >a{
+                                        &:link,
+                                        &:visited{
+                                            .setFont(14px, @cinza);
+                                            font-weight:600;
+                                        }
+                                    }
+                                }
+                            }
+                            &:hover{
+                                >ul{
+                                    display:block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .topMenu{
+                ul{
+                    list-style:none;
+                    float:right;
+                    li{
+                        float:left;
+                        margin:0 0 0 30px;
+                        a{
+                            &:link,
+                            &:visited{
+                                .setFont(12px, @cinza);
+                                font-weight:600;
+                                display:block;
+                            }
+                        }
+                    }
+                }
+            }
+            .loginMenu{
+                ul{
+                    list-style:none;
+                    float:right;
+                    li{
+                        float:left;
+                        margin:0 0 0 30px;
+                        a{
+                            &:link,
+                            &:visited{
+                                .setFont(16px, @branco);
+                                font-weight:600;
+                                text-transform:uppercase;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .search{
+            background:@branco;
+            border-bottom:1px solid #dedede;
+            form{
+                fieldset{
+                    legend{
+                        display:none;
+                    }
+                    .form-group{
+                        margin:0;
+                        &:before{
+                            content:"\f002";
+                            .setFontAweSolid(16px, #acacac);
+                            display:block;
+                            position:absolute;
+                            top:~"calc(50% - 8px)";
+                            left:15px;
+                            z-index:5;
+                            .transition();
+                        }
+                        input{
+                            &[type="text"]{
+                                border:none;
+                                padding:0 30px;
+                                height:46px;
+                                display:block;
+                                width:100%;
+                                .setFont(17px, @cinza);
+                                font-style:italic;
+                                position:relative;
+                                
+                            }
+                        }
+                        &:hover{
+                            &:before{
+                                color:@primaria;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

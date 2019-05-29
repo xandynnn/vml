@@ -1,0 +1,219 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+@import 'https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1';
+header,
+section,
+footer,
+article,
+figcaption,
+hgroup,
+figure,
+details,
+aside,
+img,
+nav,
+time {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+}
+input[type="search"],
+input[type="submit"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1030px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+a:active,
+a:selected,
+a:focus,
+a:visited {
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+html > object {
+  display: none;
+}
+.row-height {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.row-height .col-height {
+  position: relative;
+  display: table-cell;
+  height: 100%;
+  float: none;
+}
+.row-height .col-height.noPadding {
+  padding: 0;
+}
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-o-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+#conteudo form fieldset legend {
+  display: none;
+}
+#conteudo form fieldset .form-group label {
+  display: block;
+}
+#conteudo form fieldset .form-group input[type="text"] {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(33, 37, 41, 0.15);
+  padding: 9px 15px;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #868e91;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+#conteudo form fieldset .form-group select {
+  width: 100%;
+  display: block;
+  border: 1px solid #e4e4e4;
+  padding: 9px 15px;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #868e91;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: #e4e4e4;
+}
+#conteudo form fieldset .form-group select:hover {
+  border-color: rgba(33, 37, 41, 0.15);
+}

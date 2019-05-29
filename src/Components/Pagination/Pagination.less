@@ -1,0 +1,38 @@
+@import '../../App.less';
+
+//
+//  Pagination
+//
+.pagination{
+    width:100%;
+    text-align:center;
+    ul{
+        list-style:none;
+        li{
+            display:inline-block;
+            height:25px;
+            margin:0 4px;
+            a{
+                display:block;
+                height:25px;
+                &:link,
+                &:visited{
+                    .setFont(16px, @preto);
+                    font-weight:600;
+                }
+            }
+            span{
+                display:block;
+                padding:0 8px;
+                height:25px;
+                .setFont(16px, @preto);
+                font-weight:600;
+            }
+            &.active{
+                span{
+                    border:1px solid @preto;
+                }
+            }
+        }
+    }
+}
