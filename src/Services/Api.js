@@ -6,7 +6,7 @@ const api = axios.create({
 
 const config = {
 	key: '?api_key=' + process.env.REACT_APP_API_TOKEN,
-	lang: '&language=pt'
+	lang: '&language=en-US'
 }
 
 //?language=pt&media_type=movie&vote_count.gte=0&list_style=1&primary_release_year=2016&sort_by=popularity.desc

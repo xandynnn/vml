@@ -125,19 +125,60 @@
 }
 .card .postImage {
   width: 180px;
+  height: 270px;
   float: left;
   position: relative;
+}
+.card .postImage .LazyLoad {
+  background: #081c24;
+  width: 180px;
+  height: 270px;
+  position: relative;
+}
+.card .postImage .LazyLoad:before {
+  content: "\f3ff";
+  font: bold normal normal 28px/1 'Font Awesome\ 5 Free';
+  color: #01d277;
+  line-height: 28px;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  top: calc(50% - 40px );
+  right: calc(50% - 40px );
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+.card .postImage .LazyLoad.is-visible:before {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
 }
 .card .postImage img {
   display: block;
   width: 180px;
   height: auto;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 .card .postImage .hoverBox {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+}
+.card .postImage .hoverBox > span > span {
+  display: none;
 }
 .card .postContent {
   width: calc(100% - 180px);
@@ -145,9 +186,122 @@
   padding: 16px;
 }
 .card .postContent .rating {
-  display: none;
+  width: 38px;
+  height: 38px;
+  float: left;
+  display: block;
+  background: #081c24;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  position: relative;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 15px 0 0;
 }
-.card .postContent h2 {
+.card .postContent .rating span {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 3px;
+  left: 3px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0 3px 0 0;
+  z-index: 3;
+}
+.card .postContent .rating span:after {
+  content: '%';
+  font-size: 6px;
+  top: 0;
+  display: block;
+  position: absolute;
+  line-height: 4px;
+  top: 11px;
+  right: 5px;
+}
+.card .postContent .rating:before {
+  content: "";
+  background: #081c24;
+  display: block;
+  width: 32px;
+  height: 32px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  position: absolute;
+  border: 3px solid #01d277;
+}
+.card .postContent .rating.green:before {
+  border-color: #01d277;
+}
+.card .postContent .rating.green:after {
+  content: "";
+  width: 50%;
+  height: 50%;
+  background: #081c24;
+  bottom: calc(50% - 3px );
+  right: calc(50% - 3px );
+  position: absolute;
+  -moz-border-radius: 16px 0 0 0;
+  -webkit-border-radius: 16px 0 0 0;
+  border-radius: 16px 0 0 0;
+  border-left: 3px solid #1e4229;
+  border-top: 3px solid #1e4229;
+}
+.card .postContent .rating.yellow:before {
+  border-color: #d2d531;
+}
+.card .postContent .rating.yellow:after {
+  content: "";
+  width: 50%;
+  height: calc(100% - 6px);
+  background: #081c24;
+  bottom: 3px;
+  left: 3px;
+  position: absolute;
+  -moz-border-radius: 16px 0 0 16px;
+  -webkit-border-radius: 16px 0 0 16px;
+  border-radius: 16px 0 0 16px;
+  border-left: 3px solid #423d0f;
+  border-top: 3px solid #423d0f;
+  border-bottom: 3px solid #423d0f;
+}
+.card .postContent .rating.red:before {
+  border-color: #571435;
+}
+.card .postContent .rating.red:after {
+  content: "";
+  width: 50%;
+  height: 50%;
+  background: #081c24;
+  top: 3px;
+  left: calc(50% - 3px );
+  position: absolute;
+  -moz-border-radius: 0 16px 0 0;
+  -webkit-border-radius: 0 16px 0 0;
+  border-radius: 0 16px 0 0;
+  border-right: 3px solid #db2360;
+  border-top: 3px solid #db2360;
+}
+.card .postContent .top .topHead {
+  float: left;
+  width: calc(100% - 53px);
+}
+.card .postContent .top .topHead h2 {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   line-height: 20px;
   font-weight: normal;
@@ -155,6 +309,41 @@
   color: #081c24;
   font-weight: 600;
   margin: 0;
+  display: block;
+}
+.card .postContent .top .topHead h2 a:link,
+.card .postContent .top .topHead h2 a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #081c24;
+  font-weight: 600;
+  text-decoration: none;
+}
+.card .postContent .top .topHead p {
+  display: block;
+  margin: 0;
+}
+.card .postContent .content {
+  margin: 30px 0 0 0;
+}
+.card .postContent .footer {
+  padding: 15px;
+  border-top: 1px solid #e3e3e3;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: calc(100% - 210px);
+}
+.card .postContent .footer a:link,
+.card .postContent .footer a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 16px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #000000;
+  text-decoration: none;
 }
 .card .postContent p {
   font-family: 'Source Sans Pro', Arial, sans-serif;

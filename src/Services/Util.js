@@ -19,4 +19,24 @@ export default class Util {
 		}
 	}
 
+	static averageCalc(value){
+		let val = value;
+		return  Math.round( ( val * 100 ) / 10 );
+	}
+
+	static returnClassAverage( value ){
+		let val = Util.averageCalc(value);
+		let nameClass = '';
+		if ( val > 25 && val < 70 ){
+			nameClass = 'yellow';
+		}else{
+			if ( val >= 70 ){
+				nameClass = 'green';
+			}else if ( val <= 25 ){
+				nameClass = 'red';
+			}
+		}
+		return nameClass;
+	}
+
 }
