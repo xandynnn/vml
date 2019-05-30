@@ -32,7 +32,6 @@ export default class MoviesList extends Component{
         
         this.setState({
             movies: this.props.movies,
-            pagination: this.props.pagination,
             isLoading: false
         })
     }

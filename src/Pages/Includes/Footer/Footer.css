@@ -1,63 +1,3 @@
-@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
-@import 'https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1';
-header,
-section,
-footer,
-article,
-figcaption,
-hgroup,
-figure,
-details,
-aside,
-img,
-nav,
-time {
-  display: block;
-}
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-audio:not([controls]) {
-  display: none;
-}
-input[type="search"],
-input[type="submit"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  border-radius: 0;
-  -webkit-border-radius: 0;
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1030px;
-  }
-}
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-}
-a:active,
-a:selected,
-a:focus,
-a:visited {
-  border: none;
-  outline: none;
-  text-decoration: none;
-}
-a:focus {
-  outline: none;
-  text-decoration: none;
-}
-html > object {
-  display: none;
-}
 .row-height {
   display: table;
   height: 100%;
@@ -176,40 +116,62 @@ html > object {
     transform: rotate(360deg);
   }
 }
-#conteudo {
-  padding: 30px 0;
-  margin: 160px 0 0 0;
+#footer {
+  padding: 0;
+  background-image: radial-gradient(at 30% top, #074034 0%, #081c24 70%);
+  background-image: url('https://www.themoviedb.org/assets/2/v4/footers_v2/MrRobot-b40ea33e538ff2a92acf477a0de603681597455c74e27ccb00d9001cb08b2f72.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  min-height: 450px;
+  padding: 100px 0 200px 0;
+  background-color: red;
 }
-#conteudo h2.title {
-  font-family: 'Source Sans Pro', Arial, sans-serif;
-  line-height: 26px;
-  font-weight: normal;
-  font-size: 24px;
-  color: #000000;
-  font-weight: 600;
-  margin: 0 0 30px 0;
+#footer a.logo {
+  display: block;
+  margin: 0 auto;
+  width: 130px;
 }
-#conteudo h2.title a.movies:link,
-#conteudo h2.title a.movies:visited {
+#footer a.joinComunity:link,
+#footer a.joinComunity:visited {
+  display: inline-block;
+  margin: 20px 0 0 0;
+  padding: 10px 28px;
+  background: #ffffff;
   font-family: 'Source Sans Pro', Arial, sans-serif;
-  line-height: 26px;
+  line-height: 19px;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 17px;
   color: #01d277;
   font-weight: 600;
-  text-decoration: none;
+  text-transform: uppercase;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
-#conteudo h2.title a.tvshow:link,
-#conteudo h2.title a.tvshow:visited {
+#footer h2 {
+  margin: 0;
+  padding: 45px 0 5px 0;
   font-family: 'Source Sans Pro', Arial, sans-serif;
-  line-height: 26px;
+  line-height: 22px;
   font-weight: normal;
-  font-size: 24px;
-  color: #2dd4f7;
-  font-weight: 600;
-  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
 }
-#conteudo h2.title a.active:link,
-#conteudo h2.title a.active:visited {
-  text-decoration: underline;
+#footer ul {
+  list-style: none;
+}
+#footer ul li {
+  padding: 0;
+}
+#footer ul li a:link,
+#footer ul li a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #ffffff;
 }

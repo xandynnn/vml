@@ -1,0 +1,57 @@
+@import '../../../Mixins.less';
+
+.filtros{
+    form{
+        fieldset{
+            legend{
+                display:none;
+            }
+            .form-group{
+                label{
+                    display:block;
+                    .setFont(16px, @preto);
+                }
+                input{
+                    &[type="text"]{
+                        width:100%;
+                        display:block;
+                        border:1px solid rgba(33,37,41,0.15);
+                        padding:9px 15px;
+                        .setFont(16px, @cinza);
+                        .borderRadius(3px);
+                    }
+                }
+                .selectStyle{
+                    position:relative;
+                    overflow:hidden;
+                    display:block;
+                    background:#e4e4e4;
+                    .borderRadius(3px);
+                    &:before{
+                        content:"\f0d7";
+                        .setFontAweSolid(14px, @preto);
+                        position:absolute;
+                        top:~"calc(50% - 8px)";
+                        right:10px;
+                        z-index:1;
+                    }
+                    select{
+                        width:100%;
+                        display:block;
+                        border:1px solid #e4e4e4;
+                        padding:9px 15px;
+                        .setFont(16px, @preto);
+                        .appearance();
+                        .borderRadius(3px);
+                        background:transparent;
+                        position:relative;
+                        z-index:2;
+                        &:hover{
+                            border-color:rgba(33,37,41,0.15);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

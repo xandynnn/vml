@@ -21,8 +21,12 @@ export default class Card extends Component{
         super(props);
         this.state ={
             isLoading: true,
-            movie:{}
+            movie:{},
+            favorite: false,
+            watchList: false,
         }
+        this.handleChangeFavorite = this.handleChangeFavorite.bind(this);
+        this.handleChangeWatchList = this.handleChangeWatchList.bind(this);
     }
 
     componentDidMount(){
@@ -37,6 +41,18 @@ export default class Card extends Component{
         })
     }
 
+    handleChangeFavorite(){
+        this.setState({
+            favorite: !this.state.favorite
+        })
+    }
+
+    handleChangeWatchList(){
+        this.setState({
+            watchList: !this.state.watchList
+        })
+    }
+
     render(){
         let { title, release_date, vote_average, overview, poster_path } = this.state.movie;
         return(
@@ -44,20 +60,20 @@ export default class Card extends Component{
                 { !this.state.isLoading && 
                 <div className="card">
                     <div className="postImage">
+                        <a href="a">
                         <LazyLoad height="270" width="180">
-                            <a href="a">
-                                <img src={'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+poster_path} alt="" />
-                            </a>
+                            <img src={'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+poster_path} alt="" />
                         </LazyLoad>
+                        </a>
                         <div className="hoverBox">
                             <span className="popularity">
                                 <span>Popularidade</span>
                             </span>
-                            <span className="favorite">
-                                <span>Favoritar</span>
-                            </span>
-                            <span className="watchList">
+                            <span className={( this.state.watchList === true ) ? 'watchList active' : 'watchList' } onClick={this.handleChangeWatchList} >
                                 <span>Adicionar na lista</span>
+                            </span>
+                            <span className={ ( this.state.favorite === true ) ? 'favorite active' : 'favorite' } onClick={this.handleChangeFavorite} >
+                                <span>Favoritar</span>
                             </span>
                         </div>
                     </div>

@@ -11,6 +11,7 @@
         height:270px;
         float:left;
         position:relative;
+        overflow:hidden;
         .LazyLoad{
             background:@primaria;
             width:180px;
@@ -46,14 +47,64 @@
         }
         .hoverBox{
             position:absolute;
-            bottom:0;
+            bottom:-20px;
             left:0;
             width:100%;
             background:rgba(255,255,255,0.9);
+            height:40px;
+            .transition();
+            .opacity(0);
+            z-index:10;
             > span{
+                cursor:pointer;
                 > span{
                     display:none;
                 }
+                &.popularity{
+                    display:block;
+                    float:left;
+                    padding:7px;
+                    &:before{
+                        content:"\f1fe";
+                        .setFontAweSolid( 24px, @preto );
+                    }
+                }
+                &.favorite{
+                    display:block;
+                    float:right;
+                    padding:10px;
+                    &:before{
+                        content:"\f004";
+                        .setFontAweSolid( 18px, @preto );
+                        .transition();
+                    }
+                    &.active{
+                        &:before{
+                            color:rgb(239, 71, 182);
+                        }
+                    }
+                }
+                &.watchList{
+                    display:block;
+                    float:right;
+                    padding:10px;
+                    &:before{
+                        content:"\f02e";
+                        .setFontAweSolid( 18px, @preto );
+                        .transition();
+                    }
+                    &.active{
+                        &:before{
+                            color:rgb(207, 49, 49);
+                        }
+                    }
+                }
+            }
+        }
+        &:hover{
+            .hoverBox{
+                bottom:0;
+                .opacity(1);
             }
         }
     }

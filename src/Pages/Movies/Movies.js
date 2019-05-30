@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 //
 import MoviesList from '~/Components/Movies/MoviesList/MoviesList';
 import Pagination from '~/Components/Pagination/Pagination';
+import Filter from '~/Components/Movies/Filter/Filter';
 
 //
 //	Services
@@ -68,56 +69,13 @@ export default class Movies extends Component{
 					<div className="container">
 						<div className="row">
 							<div className="col-xs-12">
-								<h2>Discover New Movies & TV Shows <a href="1">Movies</a> <a href="2">TV Shows</a></h2>
+								<h2 className="title">Discover New Movies & TV Shows <a href="1" className="movies active">Movies</a> <a href="2" className="tvshow">TV Shows</a></h2>
 							</div>
 						</div>
 					</div>
 					
-					<div className="filtros">
-						<form>
-							<fieldset>
-								<legend>Filtros</legend>
-								<div className="container">
-									<div className="row">
-										<div className="col-xs-12 col-md-2">
-											<div className="form-group">
-												<label htmlFor="year">Year</label>
-												<select id="year" name="year" ref="year">
-													<option>2019</option>
-													<option>2018</option>
-													<option>2017</option>
-												</select>	
-											</div>
-										</div>
-										<div className="col-xs-12 col-md-3">
-											<div className="form-group">
-												<label htmlFor="sortby">SortBy</label>
-												<select id="sortby" name="sortby" ref="sortby">
-													<option>2019</option>
-													<option>2018</option>
-													<option>2017</option>
-												</select>	
-											</div>
-										</div>
-										<div className="col-xs-12 col-md-3">
-											<div className="form-group">
-												<label htmlFor="genre">Genre</label>
-												<input type="text" name="genre" ref="genre" id="genre" />	
-											</div>
-										</div>
-										<div className="col-xs-12 col-md-3">
-											<div className="form-group">
-												<label htmlFor="keywords">Keywords</label>
-												<input type="text" name="keywords" ref="keywords" id="keywords" />
-											</div>
-										</div>
-									</div>
-								</div>
-							</fieldset>
-						</form>
-					</div>
-
-					<MoviesList movies={this.state.movies} pagination={this.state.pagination} />
+					<Filter />
+					<MoviesList movies={this.state.movies} />
 					<Pagination pagination={this.state.pagination} />
 
 				</div>
