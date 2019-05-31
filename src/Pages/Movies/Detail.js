@@ -3,210 +3,103 @@ import React, { Component } from 'react';
 //
 //	Componentes
 //
-import Header from './../Includes/Header';
-import Footer from './../Includes/Footer';
-import Buscar from '../Includes/SearchBox';
-import { Link } from 'react-router-dom';
+import Header from '~/Pages/Includes/Header/Header';
+import Footer from '~/Pages/Includes/Footer/Footer';
+//import { Link } from 'react-router-dom';
 
 //
 //	Serviços
 //
-import api from './../../../Services/Api';
-import util from '~/Services/Util';
+import api from '~/Services/Api';
+import Util from '~/Services/Util';
 
 //
 //	Plugins
 //
-import LazyLoad from 'react-lazyload';
-import ReactDisqusComments from 'react-disqus-comments';
+import LazyLoad from 'react-lazy-load';
+import { ColorExtractor } from 'react-color-extractor';
+
+//
+//	Styles
+//
+import './Detail.less';
 
 export default class Detail extends Component{
 
 	constructor(props){
 		super(props);
 		this.state = {
-			isLoading: false,
-			projeto: Object
+			isLoading: true,
+			movie: {},
+			colors: []
 		}
 	}
 
-	//
-	//	Na montagem do componente
-	//
 	componentDidMount(){
-		
-		//
-		//	Publicações
-		//
-		this.carregaProjeto(Util);
-
+		this.loadMovie(this.getMovieId());
 	}
 
-	//
-	//	Carrega todos os Projetos cadastrados
-	//
-	carregaProjeto(slug){
-		this.setState({isLoading:true})
-		api.getProjetoBySlug(slug).then((res)=>{
+	getMovieId(){
+		return this.props.match.params.id
+	}
+
+	loadMovie(id){
+		api.getMovieById(id).then((res)=>{
+			console.log(res.data);
 			this.setState({
 				isLoading: false,
-				projeto: res.data
+				movie: res.data
 			})
 		})
 	}
 
 	render(){
 
-		let projeto = this.state.projeto;
+		const movie = this.state.movie;
+		const bgImage = 'http://image.tmdb.org/t/p/w1400_and_h450_face' + movie.backdrop_path;
 
 		return(
-			<div className="page" data-controller="detalhe">
-				
+			<div className="page">
+	
 				<Header />
-
-				<div className="contentPage">
-					<div className="animation">
-
-						<div id="projeto">
-							<header>
-								<div className="container-fluid">
-									<div className="row">
-										<div className={`headerDetalhe ` + projeto.theme }>
-											<div className="col-xs-12">
-												<div id="particles-js3"></div>
-												<Link className="listaProjetos" to={`/portfolio`}><span>Todos os projetos</span></Link>
-												{ this.state.isLoading === false && projeto.logo &&
-												<img className="logo" src={projeto.logo.url} alt="Logotipo" />
-												}
-												<a href="#a" title="Projeto anterior" className="projetoAnterior"><span>Projeto anterior</span></a>
-												<a href="#a" title="Próximo projeto" className="projetoPosterior"><span>Próximo projeto</span></a>
-											</div>
-										</div>
-									</div>
-									<div className="row">
-										<div className="col-xs-12">
-											{ this.state.isLoading === false && projeto.title &&
-											<h1>{projeto.title}</h1>
-											}
-											{ this.state.isLoading === false && projeto.about &&
-											<h2>{projeto.about}</h2>
-											}
-										</div>
-									</div>
-								</div>
-							</header>
-							<div className="detalhe">
+				<main>
+					{ !this.state.isLoading &&
+					<div id="conteudo" class="detalhe">
+						<ColorExtractor src={`${bgImage}`} getColors={ colors => this.setState({colors: colors}) } />
+						<section className="banner">
+							<div className="poster" style={{ backgroundImage: `url(${bgImage})` }}>
+								<span className="overlay" style={{ backgroundColor: this.state.colors[0] }}></span>
 								<div className="container">
 									<div className="row">
-										<div className="col-xs-12 col-md-9">
-
-											<div className="breadcrumb">
-												<ul>
-													<li>
-													<Link to={`/`}>Início</Link>
-													</li>
-													<li>
-														<Link to={`/portfolio`}>Portfolio</Link>
-													</li>
-													<li>{projeto.title}</li>
-												</ul>
+										<div className="col-xs-12 col-md-4">
+											<div className="posterImage">
+												<LazyLoad>
+													<img srcSet={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path} 2x`} sizes="auto" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt={movie.title} />
+												</LazyLoad>
 											</div>
-
-											{ this.state.isLoading === false && projeto.content &&
-												<div className="contentProject" dangerouslySetInnerHTML={{__html: projeto.content}}></div>
-											}
-											
-											{ this.state.isLoading === false && projeto.site &&
-											<p className="site"><a href={projeto.site} target="_blank" rel="noopener noreferrer">{projeto.site}</a></p>
-											}
-
-											{ this.state.isLoading === false && projeto.images &&
-												projeto.images.map((imagem, index) => (
-													<LazyLoad key={index}>
-														<img src={imagem.url} alt={imagem.name} />
-													</LazyLoad>
-												))
-											}
-
-											{ this.state.isLoading === false && projeto.video &&
-												<div className="contentVideo">
-													<h3>Video</h3>
-													{projeto.video.split('?v=').map((video, index) =>(
-														( index === 1) ? <div key={index} className="boxVideo"><iframe title="Youtube video" id="video" width="560" height="315" src={"https://www.youtube.com/embed/" + video} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div> : ""
-													))}
-												</div>
-											}
-											
-
-											<div className="boxComment">
-												<h3>Comente esse projeto</h3>
-												<ReactDisqusComments
-												shortname="mnc-1"
-												identifier={projeto._id}
-												title={projeto.title}
-												url={window.location.href} />
-											</div>
-											
 										</div>
-										<div className="col-xs-12 col-md-3">
-											<aside>
-												
-												<Buscar text="Buscar projeto" />
-
-												{ this.state.isLoading === false && projeto.about &&
-												<div className="maisInfo">
-													<h3>Projeto</h3>
-													<p>{projeto.about}</p>
-												</div>
-												}
-												
-												{ this.state.isLoading === false && projeto.company &&
-												<div className="maisInfo">
-													<h3>Empresa</h3>
-													<p>{projeto.company}</p>
-												</div>
-												}
-												
-												{ this.state.isLoading === false && projeto.work &&
-												<div className="maisInfo">
-													<h3>Trabalho realizado</h3>
-													<p>{projeto.work}</p>
-												</div>
-												}
-
-												{ this.state.isLoading === false && projeto.tecnology &&
-												<div className="maisInfo">
-													<h3>Tecnologias</h3>
-													<p>{projeto.tecnology.join(', ')}</p>
-												</div>
-												}
-
-												{ this.state.isLoading === false && projeto.site &&
-												<div className="maisInfo">
-													<h3>Acessar o site:</h3>
-													<p className="site"><a href={projeto.site} target="_blank" rel="noopener noreferrer">{projeto.site}</a></p>
-												</div>
-												}
-
-												<div className="socialShare">
-													<ul>
-														<li className="facebook"><a target="_blank" rel="noopener noreferrer" href={"https://www.facebook.com/sharer.php?u=" + window.location.href }><span>Compartilhar no Facebook</span></a></li>
-														<li className="twitter"><a target="_blank" rel="noopener noreferrer" href={"https://twitter.com/intent/tweet?url=" + window.location.href + "&text=Site " + projeto.title + " - " + projeto.about }><span>Compartilhar no Twitter</span></a></li>
-													</ul>
-												</div>
-
-											</aside>
+										<div className="col-xs-12 col-md-8">
+											<h2>{movie.title} <span>({Util.getYear(movie.release_date)})</span></h2>
 										</div>
 									</div>
 								</div>
 							</div>
+						</section>
+
+
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12">
+									
+									
+
+								</div>
+							</div>
 						</div>
-					
 					</div>
-				</div>
-
+					}
+				</main>
 				<Footer />
-
 			</div>
 		)
 	}

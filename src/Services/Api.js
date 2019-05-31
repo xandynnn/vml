@@ -10,6 +10,7 @@ const config = {
 }
 
 //?language=pt&media_type=movie&vote_count.gte=0&list_style=1&primary_release_year=2016&sort_by=popularity.desc
+// genero &with_genres[]=12
 
 //
 //	Filmes

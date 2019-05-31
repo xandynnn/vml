@@ -1,0 +1,33 @@
+@import '../../Mixins.less';
+
+#conteudo{
+    &.detalhe{
+        padding:0;
+    }
+}
+
+.poster{
+    position:relative;
+    .bgCover();
+    padding:40px;
+    span{
+        &.overlay{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgb(9.80%, 9.80%, 43.92%);
+            .opacity(0.9);
+        }
+    }
+    h2{
+        .setFont(38px, @branco);
+        font-weight:700;
+        margin:0;
+        span{
+            .setFont(27px, @branco);
+            .opacity(0.6)
+        }
+    }
+}

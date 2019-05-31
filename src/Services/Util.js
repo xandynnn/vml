@@ -39,4 +39,10 @@ export default class Util {
 		return nameClass;
 	}
 
+	static getYear(date){
+		const data = date;
+		const arrayDate = data.split("-");
+		return arrayDate[0];
+	}
+
 }

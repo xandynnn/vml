@@ -5,18 +5,24 @@ import React, { Component } from 'react';
 //
 import './Filter.less';
 
+//
+//  API
+//
+import api from '~/Services/Api';
+
 export default class Filter extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            isLoading: false,
-            years: [...Array(this.getCurrentYear()+1).keys()]
+            isLoading: true,
+            years: [...Array(this.getCurrentYear()+1).keys()],
+            genres:[]
         }
     }
 
     componentDidMount(){
-
+        this.loadGenres();
     }
 
     getCurrentYear(){
@@ -24,9 +30,21 @@ export default class Filter extends Component{
         return today.getFullYear(); 
     }
 
+    loadGenres(){
+        api.getGenres()
+            .then((res)=>{
+                this.setState({
+                    isLoading: false,
+                    genres: res.data.genres
+                })
+            })
+            .catch(err=>console.log(err))
+    }
+
     render(){
         return(
             <div className="filtros">
+                { !this.state.isLoading &&
                 <form>
                     <fieldset>
                         <legend>Filtros</legend>
@@ -69,7 +87,16 @@ export default class Filter extends Component{
                                 <div className="col-xs-12 col-md-3">
                                     <div className="form-group">
                                         <label htmlFor="genres">Genres</label>
-                                        <input type="text" name="genres" ref="genres" id="genres" />	
+                                        <span className="selectStyle">
+                                            <select id="genres" name="genres" ref="genres" defaultValue="popularity.desc">
+                                                <option value="0">Genres</option>
+                                                { this.state.genres
+                                                    .map(( genre, idx )=>(
+                                                        <option key={idx} value={genre.id}>{genre.name}</option>
+                                                    ))
+                                                }
+                                            </select>
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="col-xs-12 col-md-3">
@@ -82,6 +109,7 @@ export default class Filter extends Component{
                         </div>
                     </fieldset>
                 </form>
+                }
             </div>
         )
     }

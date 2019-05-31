@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 //
 //	Components
 //
+import Header from '~/Pages/Includes/Header/Header';
+import Footer from '~/Pages/Includes/Footer/Footer';
 import MoviesList from '~/Components/Movies/MoviesList/MoviesList';
 import Pagination from '~/Components/Pagination/Pagination';
 import Filter from '~/Components/Movies/Filter/Filter';
@@ -62,25 +64,30 @@ export default class Movies extends Component{
 
 	render(){
 		return(
-			<main>
-				{ !this.state.isLoading &&
-				<div id="conteudo">
+			<div className="page">
 
-					<div className="container">
-						<div className="row">
-							<div className="col-xs-12">
-								<h2 className="title">Discover New Movies & TV Shows <a href="1" className="movies active">Movies</a> <a href="2" className="tvshow">TV Shows</a></h2>
+				<Header />
+				<main>
+					{ !this.state.isLoading &&
+					<div id="conteudo">
+
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12">
+									<h2 className="title">Discover New Movies & TV Shows <a href="1" className="movies active">Movies</a> <a href="2" className="tvshow">TV Shows</a></h2>
+								</div>
 							</div>
 						</div>
-					</div>
-					
-					<Filter />
-					<MoviesList movies={this.state.movies} />
-					<Pagination pagination={this.state.pagination} />
+						
+						<Filter />
+						<MoviesList movies={this.state.movies} />
+						<Pagination pagination={this.state.pagination} />
 
-				</div>
-				}
-			</main>
+					</div>
+					}
+				</main>
+				<Footer />
+			</div>
 		)
 	}
 }

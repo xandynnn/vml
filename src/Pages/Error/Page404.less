@@ -1,0 +1,18 @@
+@import '../../Mixins.less';
+
+.errorPage{
+    h1{
+        .setFont(24px, @preto);
+        font-weight:600;
+        margin:0;
+    }
+    p{
+        .setFont(16px, @preto);
+        a{
+            &:link,
+            &:visited{
+                .setFont(16px, @secundaria);
+            }
+        }
+    }
+}
