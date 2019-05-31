@@ -79,7 +79,19 @@ export default class Detail extends Component{
 											</div>
 										</div>
 										<div className="col-xs-12 col-md-8">
-											<h2>{movie.title} <span>({Util.getYear(movie.release_date)})</span></h2>
+											<div className="info">
+												<h2>{movie.title} <span>({Util.getYear(movie.release_date)})</span></h2>
+												<div className="boxRating">
+
+												</div>
+
+												{ movie.overview &&
+													<div className="secItem">
+														<h3>Overview</h3>
+														<p>{movie.overview}</p>
+													</div>
+												}
+											</div>
 										</div>
 									</div>
 								</div>
