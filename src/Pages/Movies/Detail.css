@@ -537,3 +537,61 @@
 .poster .boxRating a.playTrailer:hover:before {
   color: #ffffff;
 }
+.detailMenu {
+  border-bottom: 1px solid #dedede;
+}
+.detailMenu ul.menu {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  list-style: none;
+}
+.detailMenu ul.menu li {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.detailMenu ul.menu li a:link,
+.detailMenu ul.menu li a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 700;
+  padding: 18px;
+}
+.detailMenu ul.menu li:first-child a:link,
+.detailMenu ul.menu li:first-child a:visited {
+  padding-left: 0;
+}
+.detailMenu ul.menu li:last-child a:link,
+.detailMenu ul.menu li:last-child a:visited {
+  padding-right: 0;
+}
+.division {
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 71%, #f1f1f1 72%);
+  background: -webkit-linear-gradient(left, #ffffff 71%, #f1f1f1 72%);
+  background: linear-gradient(to right, #ffffff 71%, #f1f1f1 72%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1', GradientType=1);
+}
+.division .row {
+  display: flex;
+}
+.division .row .contentbar {
+  background: #ffffff;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+}
+.division .row .sidebar {
+  background: #f1f1f1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+}

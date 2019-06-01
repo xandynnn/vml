@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import Header from '~/Pages/Includes/Header/Header';
 import Footer from '~/Pages/Includes/Footer/Footer';
 import { Link } from 'react-router-dom';
+import Cast from '~/Components/Movies/Cast/Cast';
 
 //
 //	Serviços
@@ -48,7 +49,6 @@ export default class Detail extends Component{
 
 	loadMovie(id){
 		api.getMovieById(id).then((res)=>{
-			console.log(res.data);
 			this.setState({
 				isLoading: false,
 				movie: res.data
@@ -59,9 +59,6 @@ export default class Detail extends Component{
 	loadCredits(id){
 		this.setState({isLoading:true})
 		api.getCredits(id).then((res)=>{
-			console.log(res.data.crew);
-			const novoArray = [ ...new Set( res.data.crew ) ]
-			console.log(novoArray);
 			this.setState({
 				isLoading: false,
 				crew: res.data.crew,
@@ -82,7 +79,9 @@ export default class Detail extends Component{
 				<main>
 					{ !this.state.isLoading &&
 					<div id="conteudo" className="detalhe">
+						
 						<ColorExtractor src={`${bgImage}`} getColors={ colors => this.setState({colors: colors}) } />
+						
 						<section className="banner">
 							<div className="poster" style={{ backgroundImage: `url(${bgImage})` }}>
 								<span className="overlay" style={{ backgroundColor: this.state.colors[0] }}></span>
@@ -156,16 +155,46 @@ export default class Detail extends Component{
 							</div>
 						</section>
 
+						<section className="detailMenu">
+							<div className="container">
+								<div className="row">
+									<div className="col-xs-12">
+										<ul className="menu">
+											<li>
+												<Link to="/movie/420817-aladdin/discuss" title="Discussions">Discussions</Link>
+											</li>
+											<li><Link to="/movie/420817-aladdin/reviews" title="Reviews">Reviews</Link></li>
+											<li><Link to="/movie/420817-aladdin/videos" title="Videos">Videos</Link></li>
+											<li><Link to="/movie/420817-aladdin/images/posters" title="Images">Images</Link></li>
+											<li><Link to="/movie/420817-aladdin/changes" title="Changes">Changes</Link></li>
+											<li><Link to="#1" title="Report">Report</Link></li>
+											<li><Link to="#2" title="Share">Share</Link></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+						
+						<div className="division">
+							<div className="container">
+								<div className="row">
+									<div className="col-xs-12 col-md-9 contentbar">
+										{ this.state.cast.length &&
+											<Cast casts={this.state.cast} movieid={this.state.movie.id} />
+										}
 
-						<div className="container">
-							<div className="row">
-								<div className="col-xs-12">
-									
-									
-
+									</div>
+									<div className="col-xs-12 col-md-3 sidebar">
+										<aside>
+											<div className="">
+												teste
+											</div>
+										</aside>
+									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
 					}
 				</main>
