@@ -45,4 +45,12 @@ export default class Util {
 		return arrayDate[0];
 	}
 
+	static getUnique(arr, comp) {
+		const unique = arr
+		.map(e => e[comp])
+		.map((e, i, final) => final.indexOf(e) === i && i)
+		.filter(e => arr[e]).map(e => arr[e]);
+		return unique;
+	}
+
 }

@@ -18,11 +18,13 @@ const config = {
 export const getMovieById = ( id ) => api.get('/movie/' + id + config.key );
 export const getMovies = ( page ) => api.get('discover/movie' + config.key + config.lang + '&page=' + page);
 export const getGenres = () => api.get('genre/movie/list' + config.key );
+export const getCredits = (movieId) => api.get('/movie/' + movieId + '/credits' + config.key + config.lang);
 
 const apis = {
 	getMovieById,
 	getMovies,
-	getGenres
+	getGenres,
+	getCredits
 }
 
 export default apis;
