@@ -1,0 +1,57 @@
+@import './../../../Mixins.less';
+
+.media{
+    padding:40px 0;
+    overflow:hidden;
+    border-bottom:1px solid #d7d7d7;
+    .tabList{
+        overflow:hidden;
+        h2{
+            .setFont(22px, @preto);
+            font-weight:600;
+            margin:0 20px 25px 0;
+            float:left;
+        }
+        a{
+            &:link,
+            &:visited{
+                .setFont(18px, @preto);
+                font-weight:600;
+                float:left;
+                margin:0 20px 20px 0;
+                text-decoration:none;
+                border-bottom:4px solid @branco;
+                span{
+                    color:@cinza;
+                }
+            }
+            &.active{
+                border-bottom:4px solid @preto;
+            }
+            &.viewAllVideos{
+                float:right;
+                &:link,
+                &:visited{
+                    .setFont(14px, @preto);
+                    font-weight:600;
+                }
+            }
+        }
+    }
+    .tabContent{
+        overflow:auto;
+        .scrollBox{
+            display:block;
+            width:max-content;
+            .responsiveVideo{
+                float:left;
+                height:201px;
+                iframe{
+                    width:485px;
+                    height:201px;
+                    display:block;
+                }
+            }
+        }
+    }
+}

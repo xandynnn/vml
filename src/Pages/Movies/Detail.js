@@ -7,6 +7,8 @@ import Header from '~/Pages/Includes/Header/Header';
 import Footer from '~/Pages/Includes/Footer/Footer';
 import { Link } from 'react-router-dom';
 import Cast from '~/Components/Movies/Cast/Cast';
+import Social from '~/Components/Movies/Social/Social';
+import Media from '~/Components/Movies/Media/Media';
 
 //
 //	Serviços
@@ -179,10 +181,15 @@ export default class Detail extends Component{
 							<div className="container">
 								<div className="row">
 									<div className="col-xs-12 col-md-9 contentbar">
+										
 										{ this.state.cast.length &&
 											<Cast casts={this.state.cast} movieid={this.state.movie.id} />
 										}
 
+										<Social movieid={this.state.movie.id} />
+
+										<Media movieid={this.state.movie.id} />
+				
 									</div>
 									<div className="col-xs-12 col-md-3 sidebar">
 										<aside>

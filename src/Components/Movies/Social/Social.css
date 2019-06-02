@@ -121,48 +121,72 @@
     transform: rotate(360deg);
   }
 }
-.cast {
+.social {
   padding: 40px 0;
   overflow: hidden;
   border-bottom: 1px solid #d7d7d7;
 }
-.cast h2 {
+.social .tabList {
+  overflow: hidden;
+}
+.social .tabList h2 {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   line-height: 24px;
   font-weight: normal;
   font-size: 22px;
   color: #000000;
   font-weight: 600;
-  margin: 0 0 20px;
-}
-.cast ul {
-  list-style: none;
-  display: block;
-  overflow: hidden;
-  margin: 0 -5px;
-}
-.cast ul li {
-  width: calc(100% / 5);
+  margin: 0 20px 25px 0;
   float: left;
 }
-.cast ul li .boxPerson {
+.social .tabList a:link,
+.social .tabList a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 600;
+  float: left;
+  margin: 0 20px 20px 0;
+  text-decoration: none;
+  border-bottom: 4px solid #ffffff;
+}
+.social .tabList a:link span,
+.social .tabList a:visited span {
+  color: #868e91;
+}
+.social .tabList a.active {
+  border-bottom: 4px solid #000000;
+}
+.social .tabContent {
   border: 1px solid #e3e3e3;
   -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   background: #ffffff;
-  margin: 8px 5px;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
 }
-.cast ul li .boxPerson a:link .LazyLoad,
-.cast ul li .boxPerson a:visited .LazyLoad {
+.social .tabContent .image {
+  width: 64px;
+  height: 64px;
+  float: left;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.social .tabContent .image a:link .LazyLoad,
+.social .tabContent .image a:visited .LazyLoad {
   background: #081c24;
   width: 100%;
   height: 100%;
   position: relative;
-  min-height: 168px;
 }
-.cast ul li .boxPerson a:link .LazyLoad:before,
-.cast ul li .boxPerson a:visited .LazyLoad:before {
+.social .tabContent .image a:link .LazyLoad:before,
+.social .tabContent .image a:visited .LazyLoad:before {
   content: "\f3ff";
   font: bold normal normal 28px/1 'Font Awesome\ 5 Free';
   color: #01d277;
@@ -183,55 +207,78 @@
   -moz-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
-.cast ul li .boxPerson a:link .LazyLoad.is-visible:before,
-.cast ul li .boxPerson a:visited .LazyLoad.is-visible:before {
+.social .tabContent .image a:link .LazyLoad.is-visible:before,
+.social .tabContent .image a:visited .LazyLoad.is-visible:before {
   -webkit-opacity: 0;
   -moz-opacity: 0;
   opacity: 0;
 }
-.cast ul li .boxPerson a:link .LazyLoad img,
-.cast ul li .boxPerson a:visited .LazyLoad img {
+.social .tabContent .image a:link .LazyLoad img,
+.social .tabContent .image a:visited .LazyLoad img {
   display: block;
   width: 100%;
   height: auto;
 }
-.cast ul li .boxPerson p {
+.social .tabContent .content {
+  width: calc(100% - 64px);
+  float: left;
+  padding: 0 0 0 20px;
+}
+.social .tabContent .content h3 {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 22px;
+  font-weight: normal;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+  margin: 10px 0 2px 0;
+}
+.social .tabContent .content h3:after {
+  content: '\f005 \ ' attr(data-rating);
+  background: #000000;
+  font: bold normal normal 14px/1 'Font Awesome\ 5 Free';
+  color: #ffffff;
+  line-height: 14px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 6px 10px;
+  display: inline-block;
+  margin: 0 0 0 10px;
+}
+.social .tabContent .content h3 a:link,
+.social .tabContent .content h3 a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 22px;
+  font-weight: normal;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.social .tabContent .content p {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   line-height: 18px;
   font-weight: normal;
   font-size: 16px;
   color: #000000;
+  margin: 0 0 20px 0;
+}
+.social .tabContent .content .text {
   margin: 0;
 }
-.cast ul li .boxPerson p a:link,
-.cast ul li .boxPerson p a:visited {
-  padding: 10px 10px 0 10px;
+.social .tabContent .content .text p {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   line-height: 18px;
   font-weight: normal;
   font-size: 16px;
   color: #000000;
-  font-weight: 600;
-  display: block;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-.cast ul li .boxPerson p.character {
-  font-family: 'Source Sans Pro', Arial, sans-serif;
-  line-height: 16px;
-  font-weight: normal;
-  font-size: 14px;
-  color: #000000;
-  padding: 0 10px 10px 10px;
-}
-.cast p a.viewAll {
+.social p a.viewAll {
   display: block;
   float: left;
 }
-.cast p a.viewAll:link,
-.cast p a.viewAll:visited {
+.social p a.viewAll:link,
+.social p a.viewAll:visited {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   line-height: 20px;
   font-weight: normal;

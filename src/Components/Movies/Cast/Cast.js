@@ -44,7 +44,7 @@ export default class Cast extends Component{
                 { !this.state.isLoading &&
                     <div className="cast">
                         <section>
-                            <h1>Top Billed Cast</h1>
+                            <h2>Top Billed Cast</h2>
                             <ul>
                                 { 
                                     this.state.cast
@@ -66,7 +66,7 @@ export default class Cast extends Component{
                                     ))
                                 }
                             </ul>
-                            <p><Link to={`/movie/${this.state.movieid}/cast`}>Full Cast & Crew</Link></p>
+                            <p><Link className="viewAll" to={`/movie/${this.state.movieid}/cast`}>Full Cast & Crew</Link></p>
                         </section>
                     </div>
                 }
