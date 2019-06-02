@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
 
 //
-//  Components
-//
-import { Link } from 'react-router-dom';
-
-//
 //  Services
 //
 import api from '~/Services/Api';
-import Util from '~/Services/Util';
 
 //
 //  Styles
 //
 import './Media.less';
-
-//
-//  Plugins
-//
-import LazyLoad from 'react-lazy-load';
 
 export default class Media extends Component{
 
@@ -44,7 +33,6 @@ export default class Media extends Component{
 
         await api.getVideos(movieId)
             .then((res)=>{
-                console.log(res.data);
                 this.setState({
                     isLoading: false,
                     videos: res.data,
@@ -75,10 +63,10 @@ export default class Media extends Component{
                                 .map((video, idx)=>( 
                                 <div key={idx} className="responsiveVideo">
                                     { video.site === "YouTube" &&
-                                        <iframe title={video.name} width="485" height="201" src={`https://www.youtube.com/embed/${video.key}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe title={video.name} width="485" height="201" src={`https://www.youtube.com/embed/${video.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                     }
                                     { video.site === "Vimeo" &&
-                                        <iframe title={video.name} src={`https://player.vimeo.com/video/${video.key}`} width="485" height="201" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                        <iframe title={video.name} src={`https://player.vimeo.com/video/${video.key}`} width="485" height="201" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
                                     }
                                 </div>
                                 ))

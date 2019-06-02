@@ -1,0 +1,283 @@
+.row-height {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.row-height .col-height {
+  position: relative;
+  display: table-cell;
+  height: 100%;
+  float: none;
+}
+.row-height .col-height.noPadding {
+  padding: 0;
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-o-keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@keyframes move {
+  0% {
+    -webkit-transform: rotate(0deg);
+    /* Safari */
+    -o-transform: rotate(0deg);
+    /* Opera */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    /* Safari */
+    -o-transform: rotate(359deg);
+    /* Opera */
+    -moz-transform: rotate(359deg);
+    /* Firefox */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /* Internet Explorer */
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.recommendations {
+  padding: 40px 0;
+  overflow: hidden;
+  border-bottom: 1px solid #d7d7d7;
+}
+.recommendations .tabList {
+  overflow: hidden;
+}
+.recommendations .tabList h2 {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 24px;
+  font-weight: normal;
+  font-size: 22px;
+  color: #000000;
+  font-weight: 600;
+  margin: 0 20px 25px 0;
+  float: left;
+}
+.recommendations .tabList a:link,
+.recommendations .tabList a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 600;
+  float: left;
+  margin: 0 20px 20px 0;
+  text-decoration: none;
+  border-bottom: 4px solid #ffffff;
+}
+.recommendations .tabList a:link span,
+.recommendations .tabList a:visited span {
+  color: #868e91;
+}
+.recommendations .tabList a.active {
+  border-bottom: 4px solid #000000;
+}
+.recommendations .tabList a.viewAllVideos {
+  float: right;
+}
+.recommendations .tabList a.viewAllVideos:link,
+.recommendations .tabList a.viewAllVideos:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 16px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 600;
+}
+.recommendations .tabContent {
+  overflow: auto;
+}
+.recommendations .tabContent .scrollBox {
+  display: block;
+  width: max-content;
+}
+.recommendations .tabContent .scrollBox .rec {
+  float: left;
+  max-width: 250px;
+  margin: 0 15px 0 0;
+}
+.recommendations .tabContent .scrollBox .rec .image {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.recommendations .tabContent .scrollBox .rec .image .LazyLoad {
+  background: #081c24;
+  width: 250px;
+  height: 141px;
+  position: relative;
+}
+.recommendations .tabContent .scrollBox .rec .image .LazyLoad:before {
+  content: "\f3ff";
+  font: bold normal normal 28px/1 'Font Awesome\ 5 Free';
+  color: #01d277;
+  line-height: 28px;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  top: calc(50% - 40px );
+  right: calc(50% - 40px );
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+.recommendations .tabContent .scrollBox .rec .image .LazyLoad.is-visible:before {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+.recommendations .tabContent .scrollBox .rec .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.recommendations .tabContent .scrollBox .rec h2 {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  display: block;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 15px 0;
+}
+.recommendations .tabContent .scrollBox .rec h2 span.title {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  width: calc(100% - 50px);
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.recommendations .tabContent .scrollBox .rec h2 span.title a:link,
+.recommendations .tabContent .scrollBox .rec h2 span.title a:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+}
+.recommendations .tabContent .scrollBox .rec h2 span.rate {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  width: 50px;
+  float: right;
+  display: block;
+  text-align: right;
+}
+.recommendations .tabContent .scrollBox .rec h2 span.rate:after {
+  content: "\f005";
+  font: bold normal normal 14px/1 'Font Awesome\ 5 Free';
+  color: #000000;
+  line-height: 14px;
+  margin: 0 0 0 5px;
+}

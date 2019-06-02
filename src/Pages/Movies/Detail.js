@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import Cast from '~/Components/Movies/Cast/Cast';
 import Social from '~/Components/Movies/Social/Social';
 import Media from '~/Components/Movies/Media/Media';
+import Recommendations from '~/Components/Movies/Recommendations/Recommendations';
+import Sideinfo from '~/Components/Movies/Sideinfo/Sideinfo';
 
 //
 //	Serviços
@@ -189,14 +191,14 @@ export default class Detail extends Component{
 										<Social movieid={this.state.movie.id} />
 
 										<Media movieid={this.state.movie.id} />
+
+										<Recommendations movieid={this.state.movie.id} />
 				
 									</div>
 									<div className="col-xs-12 col-md-3 sidebar">
-										<aside>
-											<div className="">
-												teste
-											</div>
-										</aside>
+										
+										<Sideinfo />
+
 									</div>
 								</div>
 							</div>

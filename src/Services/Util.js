@@ -19,9 +19,12 @@ export default class Util {
 		}
 	}
 
-	static averageCalc(value){
+	static averageCalc(value, dot = false){
 		let val = value;
-		return  Math.round( ( val * 100 ) / 10 );
+		if ( dot === false )
+			return  Math.round( ( val * 100 ) / 10 );
+		else
+			return  parseFloat( Math.round( ( val * 100 ) / 10 ) / 10 ).toFixed(1);
 	}
 
 	static returnClassAverage( value ){

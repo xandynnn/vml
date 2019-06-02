@@ -1,0 +1,125 @@
+@import './../../../Mixins.less';
+
+.recommendations{
+    padding:40px 0;
+    overflow:hidden;
+    border-bottom:1px solid #d7d7d7;
+    .tabList{
+        overflow:hidden;
+        h2{
+            .setFont(22px, @preto);
+            font-weight:600;
+            margin:0 20px 25px 0;
+            float:left;
+        }
+        a{
+            &:link,
+            &:visited{
+                .setFont(18px, @preto);
+                font-weight:600;
+                float:left;
+                margin:0 20px 20px 0;
+                text-decoration:none;
+                border-bottom:4px solid @branco;
+                span{
+                    color:@cinza;
+                }
+            }
+            &.active{
+                border-bottom:4px solid @preto;
+            }
+            &.viewAllVideos{
+                float:right;
+                &:link,
+                &:visited{
+                    .setFont(14px, @preto);
+                    font-weight:600;
+                }
+            }
+        }
+    }
+    .tabContent{
+        overflow:auto;
+        .scrollBox{
+            display:block;
+            width:max-content;
+            .rec{
+                float:left;
+                max-width:250px;
+                margin:0 15px 0 0;
+                .image{
+                    .borderRadius(5px);
+                    overflow:hidden;
+                    .LazyLoad{
+                        background:@primaria;
+                        width:250px;
+                        height:141px;
+                        position:relative;
+                        &:before{
+                            content:"\f3ff";
+                            .setFontAweSolid(28px, @secundaria);
+                            .transition();
+                            display:block;
+                            position:absolute;
+                            width:80px;
+                            height:80px;
+                            line-height:80px;
+                            text-align:center;
+                            top:~"calc(50% - 40px )";
+                            right:~"calc(50% - 40px )";
+                            -webkit-animation:spin 1.5s linear infinite;
+                            -moz-animation:spin 1.5s linear infinite;
+                            animation:spin 1.5s linear infinite;
+                        }
+                        &.is-visible{
+                            &:before{
+                                .opacity(0);
+                            }
+                        }
+                    }
+                    img{
+                        display:block;
+                        width:100%;
+                        height:auto;
+                        .transition();
+                    }
+                }
+                h2{
+                    .setFont(16px, @preto);
+                    display:block;
+                    width:100%;
+                    margin:0;
+                    overflow:hidden;
+                    padding:15px 0;
+                    span{
+                        &.title{
+                            .setFont(16px, @preto);
+                            width:~"calc(100% - 50px)";
+                            float:left;
+                            .ellipsis();
+                            display:block;
+                            a{
+                                &:link,
+                                &:visited{
+                                    .setFont(16px, @preto);
+                                }
+                            }
+                        }
+                        &.rate{
+                            .setFont(16px, @preto);
+                            width:50px;
+                            float:right;
+                            display:block;
+                            text-align:right;
+                            &:after{
+                                content:"\f005";
+                                .setFontAweSolid(14px, @preto);
+                                margin:0 0 0 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -22,6 +22,7 @@ export const getCredits = (movieId) => api.get('/movie/' + movieId + '/credits' 
 export const getReviews = (movieId) => api.get('/movie/' + movieId + '/reviews' + config.key + config.lang);
 export const getVideos = ( movieId ) => api.get('/movie/' + movieId + '/videos' + config.key + config.lang);
 export const getImages = ( movieId ) => api.get('/movie/' + movieId + '/images' + config.key + config.lang);
+export const getRecommendations = ( movieId ) => api.get('/movie/' + movieId + '/recommendations' + config.key + config.lang);
 
 const apis = {
 	getMovieById,
@@ -30,7 +31,8 @@ const apis = {
 	getCredits,
 	getReviews,
 	getVideos,
-	getImages
+	getImages,
+	getRecommendations
 }
 
 export default apis;
