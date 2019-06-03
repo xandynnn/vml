@@ -12,12 +12,13 @@
     "react-dom": "^16.8.6",
     "react-lazy-load": "^3.0.13",
     "react-router-dom": "^5.0.0",
+    "react-router-scroll-top": "^0.1.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {
     "dev": "react-app-rewired start",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

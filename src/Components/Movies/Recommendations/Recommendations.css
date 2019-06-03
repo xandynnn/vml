@@ -280,3 +280,8 @@
   line-height: 14px;
   margin: 0 0 0 5px;
 }
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
+  .recommendations .tabContent .scrollBox .rec h2 span {
+    display: block !important;
+  }
+}

@@ -50,11 +50,15 @@ export default class Media extends Component{
                    <React.Fragment>
                     <div className="tabList">
                         <h2>Social</h2>
-                        <a href="#popular">Most Popular</a>
-                        <a href="#videos" className="active">Videos <span>{videos.results.length}</span></a>
-                        <a href="#backdrops">Backdrops <span>10</span></a>
-                        <a href="#posters">Posters <span>42</span></a>
-                        <a className="viewAllVideos" href="#vielAllVideos">View all videos</a>
+                        <div className="lista">
+                            <div className="links">
+                                <a href="#popular">Most Popular</a>
+                                <a href="#videos" className="active">Videos <span>{videos.results.length}</span></a>
+                                <a href="#backdrops">Backdrops <span>10</span></a>
+                                <a href="#posters">Posters <span>42</span></a>
+                                <a className="viewAllVideos" href="#vielAllVideos">View all videos</a>
+                            </div>
+                        </div>
                     </div>
                     <div className="tabContent">
                         <div className="scrollBox">

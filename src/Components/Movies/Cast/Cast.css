@@ -241,3 +241,35 @@
   font-weight: 600;
   margin: 20px 0 0 0;
 }
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
+  .cast ul {
+    display: flex;
+    overflow-x: auto;
+  }
+  .cast ul li {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto !important;
+  }
+  .cast ul li .boxPerson {
+    width: 122px;
+  }
+  .cast ul li .boxPerson a:link .LazyLoad,
+  .cast ul li .boxPerson a:visited .LazyLoad {
+    width: 120px;
+    height: 133px;
+    min-height: auto;
+    overflow: hidden;
+  }
+  .cast ul li .boxPerson a:link .LazyLoad img,
+  .cast ul li .boxPerson a:visited .LazyLoad img {
+    width: 100%;
+    height: auto;
+  }
+  .cast ul li .boxPerson p.character {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

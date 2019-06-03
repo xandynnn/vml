@@ -97,4 +97,41 @@
             }
         }
     }
+    @media only screen and (max-width:991px), only screen and (max-device-width:991px){
+        &{
+            ul{
+                display:flex;
+                overflow-x:auto;
+                li{
+                    display:flex;
+                    align-items:center;
+                    height:auto;
+                    width:auto !important;
+                    .boxPerson{
+                        width:122px;
+                        a{
+                            &:link,
+                            &:visited{
+                                .LazyLoad{
+                                    width:120px;
+                                    height:133px;
+                                    min-height:auto;
+                                    overflow:hidden;
+                                    img{
+                                        width:100%;
+                                        height:auto;
+                                    }
+                                }
+                            }
+                        }
+                        p{
+                            &.character{
+                                .ellipsis();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

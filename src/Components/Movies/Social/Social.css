@@ -287,3 +287,33 @@
   font-weight: 600;
   margin: 20px 0 0 0;
 }
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
+  .social .tabList a:link,
+  .social .tabList a:visited {
+    margin: 0 14px 20px 0;
+  }
+  .social .tabContent .image {
+    margin: 40px 20px 20px 0;
+  }
+  .social .tabContent .content {
+    width: 100%;
+    padding: 0;
+    float: none;
+  }
+  .social .tabContent .content h3 {
+    overflow: hidden;
+  }
+  .social .tabContent .content h3:after {
+    display: block;
+    margin: 5px 0;
+    width: 60px;
+    float: left;
+  }
+  .social .tabContent .content h3 a:link,
+  .social .tabContent .content h3 a:visited {
+    display: block;
+  }
+  .social .tabContent .content .text p {
+    margin: 0;
+  }
+}

@@ -213,7 +213,7 @@ export default class Sideinfo extends Component{
                     </div>
 
                     <Link className="login" to={`/login/`}>Login to edit</Link>
-
+                    <div className="clearfix"></div>
                     <p><a className="shortcut" href="#KeyboardShortcuts">Keyboard Shortcuts</a></p>
                     
                 </div>

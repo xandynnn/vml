@@ -87,7 +87,7 @@ export default class Detail extends Component{
 						<ColorExtractor src={`${bgImage}`} getColors={ colors => this.setState({colors: colors}) } />
 						
 						<section className="banner">
-							<div className="poster" style={{ backgroundImage: `url(${bgImage})` }}>
+							<div className="poster" style={{ backgroundImage: `url(${bgImage})`, '--bg-color': this.state.colors[0] }}>
 								
 								<img className="backdrop visible-xs visible-sm" alt={movie.title} srcSet={`https://image.tmdb.org/t/p/w500_and_h282_face${movie.backdrop_path} 1x, https://image.tmdb.org/t/p/w1000_and_h563_face${movie.backdrop_path} 2x`} src={`https://image.tmdb.org/t/p/w500_and_h282_face${movie.backdrop_path}`} />
 								
@@ -128,32 +128,35 @@ export default class Detail extends Component{
 													<a className="playTrailer" href="#playTrailer">Play Trailer</a>
 												</div>
 
-												{ movie.overview &&
-													<div className="secItem">
-														<h3>Overview</h3>
-														<p>{movie.overview}</p>
-													</div>
-												}
+												<div className="bgMobile" style={{ '--bg-color': this.state.colors[1] }}>
 
-												{ this.state.crew &&
-													<div className="secItem">
-														<h3>Featured Crew</h3>
-														<div className="row">
-															{ 
-																Util.getUnique(this.state.crew, "name")
-																.filter((person) =>{
-																	return person.job === "Directing" || person.department === "Writing"
-																})
-																.map((person, idx)=>(
-																	<div key={idx} className="col-xs-6 col-md-4 crew">
-																		<h4><Link to={`/person/${person.id}`}>{person.name}</Link></h4>
-																		<p>{person.job}</p>
-																	</div>
-																))
-															}
+													{ movie.overview &&
+														<div className="secItem">
+															<h3>Overview</h3>
+															<p>{movie.overview}</p>
 														</div>
-													</div>
-												}
+													}
+
+													{ this.state.crew &&
+														<div className="secItem">
+															<h3>Featured Crew</h3>
+															<div className="row">
+																{ 
+																	Util.getUnique(this.state.crew, "name")
+																	.filter((person) =>{
+																		return person.job === "Directing" || person.department === "Writing"
+																	})
+																	.map((person, idx)=>(
+																		<div key={idx} className="col-xs-6 col-md-4 crew">
+																			<h4><Link to={`/person/${person.id}`}>{person.name}</Link></h4>
+																			<p>{person.job}</p>
+																		</div>
+																	))
+																}
+															</div>
+														</div>
+													}
+												</div>
 
 											</div>
 										</div>
@@ -162,7 +165,7 @@ export default class Detail extends Component{
 							</div>
 						</section>
 
-						<section className="detailMenu">
+						<section className="detailMenu" style={{'--bg-color': this.state.colors[0] }}>
 							<div className="container">
 								<div className="row">
 									<div className="col-xs-12">

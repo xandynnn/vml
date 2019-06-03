@@ -187,3 +187,33 @@
   height: 201px;
   display: block;
 }
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
+  .media {
+    margin: 0 !important;
+  }
+  .media .tabList .lista {
+    overflow: auto;
+  }
+  .media .tabList .lista .links {
+    display: block;
+    width: max-content;
+  }
+  .media .tabList .lista .links a:link,
+  .media .tabList .lista .links a:visited {
+    margin: 0 20px 20px 0;
+  }
+  .media .tabList .lista .links a.viewAllVideos {
+    float: left;
+    line-height: 25px;
+  }
+  .media .tabContent .scrollBox .responsiveVideo {
+    float: left;
+    height: auto;
+    width: 260px;
+  }
+  .media .tabContent .scrollBox .responsiveVideo iframe {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
