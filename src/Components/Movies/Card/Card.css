@@ -12,6 +12,11 @@
 .row-height .col-height.noPadding {
   padding: 0;
 }
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @-webkit-keyframes move {
   0% {
     -webkit-transform: rotate(0deg);
@@ -417,4 +422,28 @@
   font-weight: normal;
   font-size: 15px;
   color: #4d4d4d;
+}
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
+  .card .postImage {
+    width: 100%;
+    height: auto;
+  }
+  .card .postImage .LazyLoad {
+    width: 100%;
+    height: auto;
+    min-height: 436px;
+  }
+  .card .postImage .LazyLoad img {
+    width: 100%;
+    height: auto;
+  }
+  .card .postContent {
+    width: 100%;
+  }
+  .card .postContent .content {
+    display: none;
+  }
+  .card .postContent .footer {
+    display: none;
+  }
 }

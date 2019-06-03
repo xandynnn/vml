@@ -74,7 +74,7 @@ export default class Movies extends Component{
 						<div className="container">
 							<div className="row">
 								<div className="col-xs-12">
-									<h2 className="title">Discover New Movies & TV Shows <a href="1" className="movies active">Movies</a> <a href="2" className="tvshow">TV Shows</a></h2>
+									<h2 className="title">Discover <span>New Movies & TV Shows <a href="1" className="movies active">Movies</a> <a href="2" className="tvshow">TV Shows</a></span></h2>
 								</div>
 							</div>
 						</div>

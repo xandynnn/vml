@@ -49,4 +49,33 @@
             }
         }
     }
+    @media only screen and (max-width:991px), only screen and (max-device-width:991px){
+        &{
+            background:linear-gradient(to top right, #2455a9, #00d573);
+            padding:40px 0;
+            a{
+                &.logo{
+                    display:none;
+                }
+                &.joinComunity{
+                    margin:0;
+                    &:link,
+                    &:visited{
+                        .setFont(18px, #235ea7);
+                        font-weight:700;
+                    }
+                }
+            }
+            ul{
+                li{
+                    a{
+                        &:link,
+                        &:visited{
+                            .setFont(17px, @branco);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

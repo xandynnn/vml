@@ -59,7 +59,6 @@ export default class Card extends Component{
 
     render(){
         let { title, release_date, vote_average, overview, poster_path, id } = this.state.movie;
-        console.log(this.state.movie)
         return(
             <div className="col-xs-12 col-md-6">
                 { !this.state.isLoading && 
@@ -67,7 +66,9 @@ export default class Card extends Component{
                     <div className="postImage">
                         <Link to={`/movie/${id}`}>
                         <LazyLoad height="270" width="180">
-                            <img src={'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+poster_path} alt="" />
+                        <img
+                            srcSet={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${poster_path} 1x, https://image.tmdb.org/t/p/w370_and_h556_bestv2${poster_path} 2x`}
+                            src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${poster_path}`}  alt={title} />
                         </LazyLoad>
                         </Link>
                         <div className="hoverBox">

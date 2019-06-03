@@ -47,7 +47,7 @@ export default class Movies extends Component{
             <div className="pagination">
                 <ul>
                     { currentPage > firstPage &&
-                    <li><a href={`/movies/?page=${currentPage-1}`}>Anterior</a></li>
+                    <li><a href={`/movies/?page=${currentPage-1}`}>Prev</a></li>
                     }
                     { currentPage > firstPage && currentPage >= 8 &&
                         <React.Fragment>
@@ -84,7 +84,7 @@ export default class Movies extends Component{
                     }
 
                     { currentPage < lastPage &&
-                    <li><a href={`/movies/?page=${currentPage+1}`}>Próxima</a></li>
+                    <li><a href={`/movies/?page=${currentPage+1}`}>Next</a></li>
                     }
                 </ul>
             </div>

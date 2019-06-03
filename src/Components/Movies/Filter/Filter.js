@@ -99,7 +99,7 @@ export default class Filter extends Component{
                                         </span>
                                     </div>
                                 </div>
-                                <div className="col-xs-12 col-md-3">
+                                <div className="col-xs-12 col-md-3 keywordsField">
                                     <div className="form-group">
                                         <label htmlFor="keywords">Keywords</label>
                                         <input type="text" name="keywords" ref="keywords" id="keywords" />

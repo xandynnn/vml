@@ -5,6 +5,11 @@ import React, { Component } from 'react';
 //
 import Card from '~/Components/Movies/Card/Card';
 
+//
+//  Styles
+//
+import './MoviesList.less';
+
 export default class MoviesList extends Component{
 
     constructor(props){

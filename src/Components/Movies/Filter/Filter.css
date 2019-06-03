@@ -12,6 +12,11 @@
 .row-height .col-height.noPadding {
   padding: 0;
 }
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @-webkit-keyframes move {
   0% {
     -webkit-transform: rotate(0deg);
@@ -182,4 +187,9 @@
 }
 .filtros form fieldset .form-group .selectStyle select:hover {
   border-color: rgba(33, 37, 41, 0.15);
+}
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
+  .filtros form fieldset .keywordsField {
+    display: none;
+  }
 }

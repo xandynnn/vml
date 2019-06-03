@@ -347,6 +347,115 @@
     }
 }
 
+.banner{
+    @media only screen and (max-width:991px), only screen and (max-device-width:991px){
+        &{
+            .poster{
+                padding:0;
+                width:100%;
+                background-image:none !important;
+                span{
+                    &.overlay{
+                        display:none;
+                    }
+                }
+                .backdrop{
+                    display:block;
+                    width:100%;
+                    height:auto;
+                }
+                .posterImage{
+                    position:absolute;
+                    top:-62px;
+                    left:20px;
+                    width:83px;
+                    height:124px; 
+                    
+                }
+                .info{
+                    h2{
+                        .setFont(20px, @branco);
+                        font-weight:600;
+                        padding:10px 0 0 100px;
+                        span{
+                            display:block !important;
+                            .setFont(18px, @branco);
+                            .opacity(0.6)
+                        }
+                    }
+                }
+                .boxRating{
+                    @outBox:68px;
+                    overflow:hidden;
+                    margin:0 0 30px 0;
+                    &:before{
+                        content:"";
+                        position:fixed;
+                        bottom:0;
+                        left:0;
+                        background:rgba(8,28,36,0.85);
+                        height:46px;
+                        width:100%;
+                        z-index:10;
+                    }
+                    a{
+                        &:link,
+                        &:visited{
+                            border:none;
+                            margin:0;
+                            z-index:11;
+                            .borderRadius(0);
+                            background:none !important;
+                        }
+                        &.list{
+                            position:fixed;
+                            bottom:0;
+                            width:25%;
+                            left:0%;
+                        }
+                        &.favorite{
+                            position:fixed;
+                            bottom:0;
+                            width:25%;
+                            left:25%;
+                        }
+                        &.watchlist{
+                            position:fixed;
+                            bottom:0;
+                            width:25%;
+                            left:50%;
+                        }
+                        &.rate{
+                            position:fixed;
+                            bottom:0;
+                            width:25%;
+                            left:75%;
+                        }
+                        &.playTrailer{
+                            position:relative;
+                            &:link,
+                            &:visited{
+                                margin:12px 0 12px 20px;
+                                padding-left:30px;
+                                &:after{
+                                    content:"";
+                                    width:1px;
+                                    height:70%;
+                                    background:rgba(255,255,255,0.3);
+                                    display:block;
+                                    position:absolute;
+                                    top:15%;
+                                    left:0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 //
 //  Menu 
 //
@@ -391,6 +500,11 @@
             }
         }
     }
+    @media only screen and (max-width:991px), only screen and (max-device-width:991px){
+        &{
+            display:none;
+        }
+    }
 }
 
 //
@@ -421,5 +535,29 @@
             padding-top:40px;
         }
     }
-   
+    @media only screen and (max-width:991px), only screen and (max-device-width:991px){
+        &{
+            background:@branco;
+            .row{
+                display:block;
+                .contentbar{
+                    background:@branco;
+                    // flex-grow:1;
+                    // display:flex;
+                    // flex-direction:column;
+                    display:block;
+                    padding-right:40px;
+                }
+                .sidebar{
+                    background:#f1f1f1;
+                    flex-grow:1;
+                    display:flex;
+                    flex-direction:column;
+                    padding-left:40px;
+                    padding-bottom:40px;
+                    padding-top:40px;
+                }
+            }
+        }
+    }
 }

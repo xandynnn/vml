@@ -1,4 +1,4 @@
-@import './../../../App.less';
+@import './../../../Mixins.less';
 
 #header{
     @media only screen and (min-width:992px){
@@ -18,6 +18,9 @@
         }
         .header{
             padding:0 0 20px 0;
+            .mobileMenu{
+                display:none;
+            }
             a{
                 &.logo{
                     float:left;
@@ -25,7 +28,13 @@
                     &:link,
                     &:visited{
                         text-decoration:none;
+                        img{
+                            width:81px;
+                        }
                     }
+                }
+                &.loginBtnMobile{
+                    display:none;
                 }
             }
             .mainMenu{
@@ -188,6 +197,11 @@
                     }
                 }
             }
+            .menuMobile{
+                .mainMenu{
+                    display:none;
+                }
+            }
         }
         .search{
             background:@branco;
@@ -229,6 +243,402 @@
                         }
                     }
                 }
+            }
+        }
+    }
+    @media only screen and (max-width:991px), only screen and (max-device-width:991px){
+        background:@primaria;
+        padding:0;
+        position:fixed;
+        top:0;
+        width:100%;
+        z-index:100;
+        .np{
+            padding:0;
+        }
+        .header{
+            padding:10px 0;
+            height:64px;
+            position:relative;
+            .hamburgerBtn{
+				display:block;
+				position:absolute;
+				overflow:hidden;
+				top:0;
+				left:10px;
+				margin:0;
+				padding:0;
+				width:40px;
+				height:40px;
+				font-size:0;
+				text-indent:-9999px;
+				-webkit-appearance:none;
+				-moz-appearance:none;
+				appearance:none;
+				box-shadow:none;
+				border:none;
+				cursor:pointer;
+				.transition(background);
+				.borderRadius(0);
+				&:focus{
+					outline:none;
+				}
+				span{
+					display:block;
+					position:absolute;
+					top:18px;
+					left:8px;
+					right:8px;
+					height:5px;
+					background:@branco;
+					&:before,
+					&:after{
+						position:absolute;
+						display:block;
+						left:0;
+						width:100%;
+						height:5px;
+						background-color:@branco;
+						content:"";
+					}
+					&:before{
+						top:-10px;
+					}
+					&:after{
+						bottom:-10px;
+					}
+				}
+				&.hms{
+					background:transparent;
+					span {
+						-webkit-transition: background 0s 0.3s;
+						transition: background 0s 0.3s;
+						&:before,
+						&:after {
+							-webkit-transition-duration: 0.3s, 0.3s;
+							transition-duration: 0.3s, 0.3s;
+							-webkit-transition-delay: 0.3s, 0s;
+							transition-delay: 0.3s, 0s;
+						}
+						&:before {
+							-webkit-transition-property: top, -webkit-transform;
+							transition-property: top, transform;
+						}
+						&:after {
+							-webkit-transition-property: bottom, -webkit-transform;
+							transition-property: bottom, transform;
+						}
+					}
+					&.active {
+						span {
+							background: none;
+							&:before {
+								top: 0;
+								-webkit-transform: rotate(45deg);
+								-ms-transform: rotate(45deg);
+								transform: rotate(45deg);
+							}
+							&:after {
+								bottom: 0;
+								-webkit-transform: rotate(-45deg);
+								-ms-transform: rotate(-45deg);
+								transform: rotate(-45deg);
+							}
+							&:before,
+							&:after{
+								-webkit-transition-delay: 0s, 0.3s;
+								transition-delay: 0s, 0.3s;
+							}
+						}
+					}
+				}
+			}
+            a{
+                &.logo{
+                    position:absolute;
+                    top:0;
+                    left:50%;
+                    .translate(-50% ,0);
+                    margin:0 30px 0 0;
+                    width:45px;
+                    height:40px;
+                    &:link,
+                    &:visited{
+                        text-decoration:none;
+                        img{
+                            width:45px;
+                            height:40px;
+                        }
+                    }
+                }
+                &.loginBtnMobile{
+                    position:absolute;
+                    top:10px;
+                    right:20px;
+                    span{
+                        display:none;
+                    }
+                    &:before{
+                        content:"\f007";
+                        .setFontAweSolid(22px, @branco);
+                    }
+                }
+            }
+            .mainMenu{
+                display:none;
+            }
+            .topMenu{
+                display:none;
+                ul{
+                    li{
+                        a{
+                            &:link,
+                            &:visited{
+                            }
+                        }
+                    }
+                }
+            }
+            .loginMenu{
+                display:none;
+                ul{
+                    li{
+                        a{
+                            &:link,
+                            &:visited{
+                            }
+                            &.language{
+                                &:link,
+                                &:visited{
+                                }
+                                &:hover{
+                                }
+                            }
+                            &.plus{
+                                &:link,
+                                &:visited{
+                                    &:before{
+                                    }
+                                    span{
+                                        &.box{
+                                            &:before{
+                                            }
+                                        }
+                                    }
+                                }
+                                &:hover{
+                                    span{
+                                        &.box{
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .menuMobile{
+                position:fixed;
+                top:64px;
+                left:0;
+                z-index:10;
+                width:90%;
+                height:~"calc(100% - 64px)";
+                background:rgba(8,28,36,0.95);
+                box-shadow:inset -5px 0 30px -10px rgba(0,0,0,.3);
+                padding:18px 25px;
+                display:block;
+                overflow-y:auto;
+                .transition();
+                .opacity(0);
+                left:-100%;
+                .mainMenu{
+                    display:block;
+                    margin:0 0 20px 0;
+                    nav{
+                        >ul{
+                            list-style:none;
+                            >li{
+                                >a{
+                                    &:link,
+                                    &:visited{
+                                        .setFont(21px, @branco);
+                                    }
+                                }
+                                >ul{
+                                    list-style:none;
+                                    padding:0 0 0 15px;
+                                    height:0;
+                                    overflow:hidden;
+                                    >li{
+                                        display:block;
+                                        >a{
+                                            &:link,
+                                            &:visited{
+                                                .setFont(14px, #868e91);
+                                                display:inline-block;
+                                                padding:5px;
+                                            }
+                                        }
+                                    }
+                                }
+                                &:hover{
+                                    >ul{
+                                    }
+                                }
+                                &.active{
+                                    > ul{
+                                        height:auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .topMenu{
+                    display:block;
+                    margin:0 0 20px 0;
+                    ul{
+                        list-style:none;
+                        li{
+                            a{
+                                &:link,
+                                &:visited{
+                                    .setFont(16px, #868e91);
+                                    display:inline-block;
+                                    padding:5px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .loginMenu{
+                    display:block;
+                    margin:0 0 20px 0;
+                    ul{
+                        list-style:none;
+                        li{
+                            a{
+                                &:link,
+                                &:visited{
+                                    .setFont(16px, #868e91);
+                                    display:inline-block;
+                                    padding:5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .search{
+            border-bottom:1px solid #dedede;
+            .container{
+                padding:0;
+                .row{
+                    margin:0;
+                    .col-xs-12{
+                        padding:0;
+                    }
+                }
+            }
+            form{
+                fieldset{
+                    legend{
+                        display:none;
+                    }
+                    .form-group{
+                        margin:0;
+                        &:before{
+                            content:"\f002";
+                            .setFontAweSolid(16px, #acacac);
+                            display:block;
+                            position:absolute;
+                            top:~"calc(50% - 8px)";
+                            left:15px;
+                            z-index:5;
+                            .transition();
+                        }
+                        input{
+                            &[type="text"]{
+                                border:none;
+                                padding:0 15px 0 45px;
+                                height:46px;
+                                display:block;
+                                width:100%;
+                                .setFont(17px, @cinza);
+                                font-style:italic;
+                                position:relative;
+                                
+                            }
+                        }
+                        &:hover{
+                            &:before{
+                                color:@primaria;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:992px){
+    html{
+        body{
+            &.fixedMenuD{
+                #header{
+                    padding:0;
+                    .header{
+                        padding:0;
+                        a{
+                            &.logo{
+                                width:45px;
+                                img{
+                                    display:block;
+                                    width:100%;
+                                    .transition();
+                                }
+                            }
+                        }
+                        .mainMenu{
+                            nav{
+                                ul{
+                                    li{
+                                        ul{
+                                            display:none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .topMenu{
+                            display:none;
+                        }
+                        .loginMenu{
+                            .transition();
+                            float:right;
+                            margin:25px 0 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:991px), only screen and (max-device-width:991px){
+    &.activeMenu{
+        body{
+            overflow:hidden;
+            height:100%;
+            width:100%;
+        }
+        #header{
+           .menuMobile{
+                .opacity(1);
+                left:0;
             }
         }
     }

@@ -12,6 +12,11 @@
 .row-height .col-height.noPadding {
   padding: 0;
 }
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @-webkit-keyframes move {
   0% {
     -webkit-transform: rotate(0deg);
@@ -126,7 +131,6 @@
   align-items: center;
   min-height: 450px;
   padding: 100px 0 200px 0;
-  background-color: red;
 }
 #footer a.logo {
   display: block;
@@ -174,4 +178,33 @@
   font-weight: normal;
   font-size: 16px;
   color: #ffffff;
+}
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
+  #footer {
+    background: linear-gradient(to top right, #2455a9, #00d573);
+    padding: 40px 0;
+  }
+  #footer a.logo {
+    display: none;
+  }
+  #footer a.joinComunity {
+    margin: 0;
+  }
+  #footer a.joinComunity:link,
+  #footer a.joinComunity:visited {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 20px;
+    font-weight: normal;
+    font-size: 18px;
+    color: #235ea7;
+    font-weight: 700;
+  }
+  #footer ul li a:link,
+  #footer ul li a:visited {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 19px;
+    font-weight: normal;
+    font-size: 17px;
+    color: #ffffff;
+  }
 }

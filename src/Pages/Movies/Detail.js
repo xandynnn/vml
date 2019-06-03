@@ -88,6 +88,9 @@ export default class Detail extends Component{
 						
 						<section className="banner">
 							<div className="poster" style={{ backgroundImage: `url(${bgImage})` }}>
+								
+								<img className="backdrop visible-xs visible-sm" alt={movie.title} srcSet={`https://image.tmdb.org/t/p/w500_and_h282_face${movie.backdrop_path} 1x, https://image.tmdb.org/t/p/w1000_and_h563_face${movie.backdrop_path} 2x`} src={`https://image.tmdb.org/t/p/w500_and_h282_face${movie.backdrop_path}`} />
+								
 								<span className="overlay" style={{ backgroundColor: this.state.colors[0] }}></span>
 								<div className="container">
 									<div className="row">
@@ -142,7 +145,7 @@ export default class Detail extends Component{
 																	return person.job === "Directing" || person.department === "Writing"
 																})
 																.map((person, idx)=>(
-																	<div key={idx} className="col-xs-12 col-md-4 crew">
+																	<div key={idx} className="col-xs-6 col-md-4 crew">
 																		<h4><Link to={`/person/${person.id}`}>{person.name}</Link></h4>
 																		<p>{person.job}</p>
 																	</div>
