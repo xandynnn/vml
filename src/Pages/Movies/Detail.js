@@ -197,7 +197,7 @@ export default class Detail extends Component{
 									</div>
 									<div className="col-xs-12 col-md-3 sidebar">
 										
-										<Sideinfo />
+										<Sideinfo info={this.state.movie} />
 
 									</div>
 								</div>

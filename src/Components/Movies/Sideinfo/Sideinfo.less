@@ -2,7 +2,117 @@
 
 .sideBar{
     .socialShare{
-        background:red;
+        ul{
+            list-style:none;
+            overflow:hidden;
+            li{
+                float:left;
+                margin:0 10px 0 0;
+                a{
+                    &:link,
+                    &:visited{
+                        text-decoration:none;
+                        span{
+                            display:none;
+                        }
+                        &.facebook{
+                            &:before{
+                                content:"\f082";
+                                .setFontAweBrands(35px, @preto);
+                            }
+                        }
+                        &.twitter{
+                            &:before{
+                                content:'\f081';
+                                .setFontAweBrands(35px, @preto);
+                            }
+                        }
+                        &.instagram{
+                            &:before{
+                                content:'\f16d';
+                                .setFontAweBrands(35px, @preto);
+                            }
+                        }
+                        &.website{
+                            &:before{
+                                content:"";
+                                width:1px;
+                                background:#d7d7d7;
+                                height:35px;
+                                margin:0 10px 0 0;
+                                line-height:35px;
+                                display:block;
+                                float:left;
+                            }
+                            &:after{
+                                content:'\f0c1';
+                                .setFontAweSolid(28px, @preto);
+                                line-height:35px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .separator{
+        background:#d7d7d7;
+        height:1px;
+        width:100%;
+        display:block;
+        margin:30px 0;
+    }
+    .scoreBar{
+        background:@preto;
+        .borderRadius(10px);
+        padding:8px 15px;
+        display:block;
+        width:100%;
+        .setFont(18px, @branco);
+        font-weight:700;
+    }
+    a{
+        &.login{
+            padding:10px 20px;
+            margin:0 0 30px 0;
+            float:left;
+            &:link,
+            &:visited{
+                background:#24252b;
+                .borderRadius(30px);
+                .setFont(18px, @branco);
+                font-weight:700;
+                line-height:20px;
+                text-transform:uppercase;
+                .transition();
+                display:block;
+                text-decoration:none;
+                &:before{
+                    content:'\f13e';
+                    .setFontAweSolid(20px, @branco);
+                    line-height:20px;
+                    margin:0 10px 0 0;
+                    display:inline-block;
+                }
+            }
+            &:hover{
+                background:@preto;
+            }
+        }
+    }
+    p{
+        a{
+            &.shortcut{
+                &:link,
+                &:visited{
+                    color:rgba(0,0,0,0.5);
+                }
+            }
+        }
+        &.score{
+            .setFont(14px, @preto);
+            margin:0 0 15px 0;
+        }
     }
     .inform{
         margin:0 0 20px 0;
@@ -12,14 +122,119 @@
             margin:0 0 10px 0;
         }
         p{
-
-        }
-        ul{
-            li{
-                a{
+            a{
+                &.contributorsLink{
                     &:link,
                     &:visited{
-
+                        .setFont(16px, @preto);
+                        text-decoration:none;
+                        line-height:20px;
+                        &:before{
+                            content:'\f105';
+                            .setFontAweSolid(20px, @preto);
+                            line-height:20px;
+                            margin:0 10px 0 0;
+                            display:inline-block;
+                        }
+                    }
+                }
+            }
+        }
+        ul{
+            &:not(.contributors){
+                display:block;
+                width:100%;
+                overflow:hidden;
+                li{
+                    display:block;
+                    float:left;
+                    border:1px solid #d7d7d7;
+                    padding:4px 10px;
+                    .borderRadius(4px);
+                    background:@branco;
+                    margin:0 5px 5px 0;
+                    a{
+                        &:link,
+                        &:visited{
+                            display:block;
+                            float:left;
+                            .setFont(15px, @preto);
+                        }
+                    }
+                }
+                &.genres{
+                    li{
+                        a{
+                            &:link,
+                            &:visited{
+                                text-transform:uppercase;
+                            }
+                        }
+                    }
+                }
+            }
+            &.contributors{
+                list-style:none;
+                margin:0;
+                li{
+                    overflow:hidden;
+                    display:block;
+                    margin:0 0 30px 0;
+                    a{
+                        &:link,
+                        &:visited{
+                            overflow:hidden;
+                            display:block;
+                            .avatar{
+                                width:45px;
+                                height:45px;
+                                display:block;
+                                .borderRadius(50%);
+                                overflow:hidden;
+                                float:left;
+                                .LazyLoad{
+                                    background:@primaria;
+                                    width:45px;
+                                    height:45px;
+                                    position:relative;
+                                    &:before{
+                                        content:"\f3ff";
+                                        .setFontAweSolid(15px, @secundaria);
+                                        .transition();
+                                        display:block;
+                                        position:absolute;
+                                        width:45px;
+                                        height:45px;
+                                        line-height:45px;
+                                        text-align:center;
+                                        top:~"calc(50% - 22px )";
+                                        right:~"calc(50% - 22px )";
+                                        -webkit-animation:spin 1.5s linear infinite;
+                                        -moz-animation:spin 1.5s linear infinite;
+                                        animation:spin 1.5s linear infinite;
+                                    }
+                                    &.is-visible{
+                                        &:before{
+                                            .opacity(0);
+                                        }
+                                    }
+                                }
+                            }
+                            .moreInfo{
+                                float:left;
+                                width:~"calc(100% - 45px)";
+                                padding:0 0 0 10px;
+                                .point{
+                                    .setFont(16px, @preto);
+                                    font-weight:600;
+                                }
+                                p{
+                                    .setFont(16px, @preto);
+                                    margin:0;
+                                    .ellipsis();
+                                }
+                            }
+                        }
                     }
                 }
             }

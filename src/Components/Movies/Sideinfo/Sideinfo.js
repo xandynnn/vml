@@ -11,22 +11,55 @@ import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 
 //
+//  Services
+//
+import api from '~/Services/Api';
+
+//
 //  Styles
 //
 import './Sideinfo.less';
 
 export default class Sideinfo extends Component{
+
+    constructor(props){
+		super(props);
+		this.state = {
+			isLoading: true,
+            movie: {},
+            keywords:[]
+		}
+    }
+    
+    componentDidMount(){
+		this.loadMovie();
+    }
+    
+    loadMovie(){
+        api.getKeywords(this.props.info.id)
+            .then((res)=>{
+                this.setState({
+                    isLoading: false,
+                    movie: this.props.info,
+                    keywords: res.data.keywords
+                })
+            })
+            .catch(err=>console.log(err));
+	}
+
     render(){
         return(
             <aside>
+                { !this.state.isLoading &&
                 <div className="sideBar">
-                    
                     <div className="socialShare">
                         <ul>
-                            <li><a href="#" className="facebook"><span>Facebook</span></a></li>
-                            <li><a href="#" className="twitter"><span>twitter</span></a></li>
-                            <li><a href="#" className="instagram"><span>instagram</span></a></li>
-                            <li><a href="#" className="website"><span>site</span></a></li>
+                            <li><a href="#1" className="facebook"><span>Facebook</span></a></li>
+                            <li><a href="#2" className="twitter"><span>twitter</span></a></li>
+                            <li><a href="#3" className="instagram"><span>instagram</span></a></li>
+                            { this.state.movie.homepage && 
+                            <li><a target="_blank" rel="noopener noreferrer" href={this.state.movie.homepage} className="website"><span>site</span></a></li>
+                            }
                         </ul>
                     </div>
 
@@ -34,75 +67,108 @@ export default class Sideinfo extends Component{
                         <h2>Facts</h2>
                     </div>
 
+                    { this.state.movie.status &&
                     <div className="inform">
                         <h2>Status</h2>
-                        <p>Released</p>
+                        <p>{this.state.movie.status}</p>
                     </div>
+                    }
 
+                    { this.state.movie.release_date &&
                     <div className="inform">
                         <h2>Release Information</h2>
+                        {this.state.movie.release_date}
                     </div>
+                    }
 
+                    { this.state.movie.original_language &&
                     <div className="inform">
                         <h2>Original Language</h2>
+                        {
+                            this.state.movie.spoken_languages
+                            .filter((lang)=>{
+                                return lang.iso_639_1 === this.state.movie.original_language
+                            })
+                            .map((lang, idx) =>(
+                                <p key={idx}>{lang.name}</p>
+                            ))
+                        }
                     </div>
+                    }
 
+                    { this.state.movie.runtime &&
                     <div className="inform">
                         <h2>Runtime</h2>
+                        <p>{this.state.movie.runtime}</p>
                     </div>
+                    }
 
+                    { this.state.movie.budget && 
                     <div className="inform">
                         <h2>Budget</h2>
+                        <p>{this.state.movie.budget}</p>
                     </div>
-
+                    }
+                    
+                    { this.state.movie.revenue && 
                     <div className="inform">
                         <h2>Revenue</h2>
+                        <p>{this.state.movie.revenue}</p>
                     </div>
+                    }
 
-                    <div className="inform">
-                        <h2>Genres</h2>
-                        <ul>
-                            <li><Link to={`/genre/9648/movie`}>Mistery</Link></li>
-                            <li><Link to={`/genre/10751/movie`}>Family</Link></li>
-                            <li><Link to={`/genre/35/movie`}>Comedy</Link></li>
-                            <li><Link to={`/genre/878/movie`}>Science Fiction</Link></li>
-                            <li><Link to={`/genre/28/movie`}>Action</Link></li>
-                            <li><Link to={`/genre/12/movie`}>Adventure</Link></li>
-                        </ul>
-                    </div>
+                    { this.state.movie.genres &&
+                        <div className="inform">
+                            <h2>Genres</h2>
+                            <ul className="genres">
+                                {
+                                    this.state.movie.genres
+                                    .map((genre, idx)=>(
+                                        <li key={idx}><Link to={`/genre/${genre.id}/movie`}>{genre.name}</Link></li>
+                                    ))
+                                }
+                                
+                            </ul>
+                        </div>
+                    }
 
+                    { this.state.keywords &&
                     <div className="inform">
                         <h2>Keywords</h2>
-                        <ul>
-                            <li><Link to="/keyword/703-detective/movie">detective</Link></li>
-                            <li><Link to="/keyword/1453-amnesia/movie">amnesia</Link></li>
-                            <li><Link to="/keyword/11451-pokemon/movie">pokémon</Link></li>
-                            <li><Link to="/keyword/41645-based-on-video-game/movie">based on video game</Link></li>
-                            <li><Link to="/keyword/156091-missing-person/movie">missing person</Link></li>
-                            <li><Link to="/keyword/167541-buddy-comedy/movie">buddy comedy</Link></li>
-                            <li><Link to="/keyword/201952-pikachu/movie">pikachu</Link></li>
-                            <li><Link to="/keyword/252080-missing-father/movie">missing father</Link></li>
-                            <li><Link to="/keyword/254192-live-action/movie">live action</Link></li>
-                            <li><Link to="/keyword/254193-missing-man/movie">missing man</Link></li>
-                            <li><Link to="/keyword/254195-cinematic-universe/movie">cinematic universe</Link></li>
-                            <li><Link to="/keyword/254196-pikachu-character/movie">pikachu character</Link></li>
+                        <ul className="keywords">
+                            { 
+                                this.state.keywords
+                                .map((keyword, idx)=>(
+                                    <li key={idx}>
+                                        <Link to={`/keyword/${keyword.id}/movie`}>
+                                            {keyword.name}
+                                        </Link>
+                                    </li>
+                                ))
+                            }
+                            
                         </ul>
                     </div>
+                    }
 
                     <div className="separator"></div>
 
                     <div className="inform">
                         <h2>Content Score</h2>
+                        <div className="scoreBar">
+                            100
+                        </div>
+                        <p className="score">Yes! Looking good!</p>
                     </div>
 
                     <div className="inform">
                         <h2>Top Contributors</h2>
-                        <ul>
+                        <ul className="contributors">
                             <li>
                                 <Link to={`/u/topkek`}>
-                                    <div className="img">
+                                    <div className="avatar">
                                         <LazyLoad>
-                                            <img alt="TopKek" srcset="https://image.tmdb.org/t/p/w45_and_h45_face/cNDCv5yGLucVYgpwWXOWEIE3KaH.jpg 1x, https://image.tmdb.org/t/p/w90_and_h90_face/cNDCv5yGLucVYgpwWXOWEIE3KaH.jpg 2x" src="https://image.tmdb.org/t/p/w45_and_h45_face/cNDCv5yGLucVYgpwWXOWEIE3KaH.jpg" />
+                                            <img alt="TopKek" srcSet="https://image.tmdb.org/t/p/w45_and_h45_face/cNDCv5yGLucVYgpwWXOWEIE3KaH.jpg 1x, https://image.tmdb.org/t/p/w90_and_h90_face/cNDCv5yGLucVYgpwWXOWEIE3KaH.jpg 2x" src="https://image.tmdb.org/t/p/w45_and_h45_face/cNDCv5yGLucVYgpwWXOWEIE3KaH.jpg" />
                                         </LazyLoad>
                                     </div>
                                     <div className="moreInfo">
@@ -113,9 +179,9 @@ export default class Sideinfo extends Component{
                             </li>
                             <li>
                                 <Link to={`/u/zoulnix`}>
-                                    <div className="img">
+                                    <div className="avatar">
                                         <LazyLoad>
-                                            <img alt="zoulnix" srcset="https://image.tmdb.org/t/p/w45_and_h45_face/hT033TcldYigJ8ZtmuxVQLRafkE.jpg 1x, https://image.tmdb.org/t/p/w90_and_h90_face/hT033TcldYigJ8ZtmuxVQLRafkE.jpg 2x" src="https://image.tmdb.org/t/p/w45_and_h45_face/hT033TcldYigJ8ZtmuxVQLRafkE.jpg" />
+                                            <img alt="zoulnix" srcSet="https://image.tmdb.org/t/p/w45_and_h45_face/hT033TcldYigJ8ZtmuxVQLRafkE.jpg 1x, https://image.tmdb.org/t/p/w90_and_h90_face/hT033TcldYigJ8ZtmuxVQLRafkE.jpg 2x" src="https://image.tmdb.org/t/p/w45_and_h45_face/hT033TcldYigJ8ZtmuxVQLRafkE.jpg" />
                                         </LazyLoad>
                                     </div>
                                     <div className="moreInfo">
@@ -126,9 +192,9 @@ export default class Sideinfo extends Component{
                             </li>
                             <li>
                                 <Link to={`/u/fantrashalert`}>
-                                    <div className="img">
+                                    <div className="avatar">
                                         <LazyLoad>
-                                        <img alt="fantrashalert" srcset="https://secure.gravatar.com/avatar/0d113a9457fa36106cd7b08e3a5cc172.jpg?s=45 1x, https://secure.gravatar.com/avatar/0d113a9457fa36106cd7b08e3a5cc172.jpg?s=90 2x" src="https://secure.gravatar.com/avatar/0d113a9457fa36106cd7b08e3a5cc172.jpg?s=45" />
+                                        <img alt="fantrashalert" srcSet="https://secure.gravatar.com/avatar/0d113a9457fa36106cd7b08e3a5cc172.jpg?s=45 1x, https://secure.gravatar.com/avatar/0d113a9457fa36106cd7b08e3a5cc172.jpg?s=90 2x" src="https://secure.gravatar.com/avatar/0d113a9457fa36106cd7b08e3a5cc172.jpg?s=45" />
                                         </LazyLoad>
                                     </div>
                                     <div className="moreInfo">
@@ -138,7 +204,7 @@ export default class Sideinfo extends Component{
                                 </Link>
                             </li>
                         </ul>
-                        <p><Link to={`/movie//447404/changes/`}>View Edit History</Link></p>
+                        <p><Link className="contributorsLink" to={`/movie//447404/changes/`}>View Edit History</Link></p>
                     </div>
 
                     <div className="inform">
@@ -148,9 +214,10 @@ export default class Sideinfo extends Component{
 
                     <Link className="login" to={`/login/`}>Login to edit</Link>
 
-                    <p><a href="#KeyboardShortcuts">Keyboard Shortcuts</a></p>
+                    <p><a className="shortcut" href="#KeyboardShortcuts">Keyboard Shortcuts</a></p>
                     
                 </div>
+                }
             </aside>
         )
     }

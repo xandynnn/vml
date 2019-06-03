@@ -121,8 +121,132 @@
     transform: rotate(360deg);
   }
 }
-.sideBar .socialShare {
-  background: red;
+.sideBar .socialShare ul {
+  list-style: none;
+  overflow: hidden;
+}
+.sideBar .socialShare ul li {
+  float: left;
+  margin: 0 10px 0 0;
+}
+.sideBar .socialShare ul li a:link,
+.sideBar .socialShare ul li a:visited {
+  text-decoration: none;
+}
+.sideBar .socialShare ul li a:link span,
+.sideBar .socialShare ul li a:visited span {
+  display: none;
+}
+.sideBar .socialShare ul li a:link.facebook:before,
+.sideBar .socialShare ul li a:visited.facebook:before {
+  content: "\f082";
+  font: normal normal normal 35px/1 'Font Awesome\ 5 Brands';
+  color: #000000;
+  line-height: 35px;
+}
+.sideBar .socialShare ul li a:link.twitter:before,
+.sideBar .socialShare ul li a:visited.twitter:before {
+  content: '\f081';
+  font: normal normal normal 35px/1 'Font Awesome\ 5 Brands';
+  color: #000000;
+  line-height: 35px;
+}
+.sideBar .socialShare ul li a:link.instagram:before,
+.sideBar .socialShare ul li a:visited.instagram:before {
+  content: '\f16d';
+  font: normal normal normal 35px/1 'Font Awesome\ 5 Brands';
+  color: #000000;
+  line-height: 35px;
+}
+.sideBar .socialShare ul li a:link.website:before,
+.sideBar .socialShare ul li a:visited.website:before {
+  content: "";
+  width: 1px;
+  background: #d7d7d7;
+  height: 35px;
+  margin: 0 10px 0 0;
+  line-height: 35px;
+  display: block;
+  float: left;
+}
+.sideBar .socialShare ul li a:link.website:after,
+.sideBar .socialShare ul li a:visited.website:after {
+  content: '\f0c1';
+  font: bold normal normal 28px/1 'Font Awesome\ 5 Free';
+  color: #000000;
+  line-height: 28px;
+  line-height: 35px;
+}
+.sideBar .separator {
+  background: #d7d7d7;
+  height: 1px;
+  width: 100%;
+  display: block;
+  margin: 30px 0;
+}
+.sideBar .scoreBar {
+  background: #000000;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 8px 15px;
+  display: block;
+  width: 100%;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+}
+.sideBar a.login {
+  padding: 10px 20px;
+  margin: 0 0 30px 0;
+  float: left;
+}
+.sideBar a.login:link,
+.sideBar a.login:visited {
+  background: #24252b;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  display: block;
+  text-decoration: none;
+}
+.sideBar a.login:link:before,
+.sideBar a.login:visited:before {
+  content: '\f13e';
+  font: bold normal normal 20px/1 'Font Awesome\ 5 Free';
+  color: #ffffff;
+  line-height: 20px;
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+.sideBar a.login:hover {
+  background: #000000;
+}
+.sideBar p a.shortcut:link,
+.sideBar p a.shortcut:visited {
+  color: rgba(0, 0, 0, 0.5);
+}
+.sideBar p.score {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 16px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #000000;
+  margin: 0 0 15px 0;
 }
 .sideBar .inform {
   margin: 0 0 20px 0;
@@ -135,4 +259,140 @@
   color: #000000;
   font-weight: 600;
   margin: 0 0 10px 0;
+}
+.sideBar .inform p a.contributorsLink:link,
+.sideBar .inform p a.contributorsLink:visited {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  text-decoration: none;
+  line-height: 20px;
+}
+.sideBar .inform p a.contributorsLink:link:before,
+.sideBar .inform p a.contributorsLink:visited:before {
+  content: '\f105';
+  font: bold normal normal 20px/1 'Font Awesome\ 5 Free';
+  color: #000000;
+  line-height: 20px;
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+.sideBar .inform ul:not(.contributors) {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+.sideBar .inform ul:not(.contributors) li {
+  display: block;
+  float: left;
+  border: 1px solid #d7d7d7;
+  padding: 4px 10px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: #ffffff;
+  margin: 0 5px 5px 0;
+}
+.sideBar .inform ul:not(.contributors) li a:link,
+.sideBar .inform ul:not(.contributors) li a:visited {
+  display: block;
+  float: left;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 17px;
+  font-weight: normal;
+  font-size: 15px;
+  color: #000000;
+}
+.sideBar .inform ul:not(.contributors).genres li a:link,
+.sideBar .inform ul:not(.contributors).genres li a:visited {
+  text-transform: uppercase;
+}
+.sideBar .inform ul.contributors {
+  list-style: none;
+  margin: 0;
+}
+.sideBar .inform ul.contributors li {
+  overflow: hidden;
+  display: block;
+  margin: 0 0 30px 0;
+}
+.sideBar .inform ul.contributors li a:link,
+.sideBar .inform ul.contributors li a:visited {
+  overflow: hidden;
+  display: block;
+}
+.sideBar .inform ul.contributors li a:link .avatar,
+.sideBar .inform ul.contributors li a:visited .avatar {
+  width: 45px;
+  height: 45px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+.sideBar .inform ul.contributors li a:link .avatar .LazyLoad,
+.sideBar .inform ul.contributors li a:visited .avatar .LazyLoad {
+  background: #081c24;
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+.sideBar .inform ul.contributors li a:link .avatar .LazyLoad:before,
+.sideBar .inform ul.contributors li a:visited .avatar .LazyLoad:before {
+  content: "\f3ff";
+  font: bold normal normal 15px/1 'Font Awesome\ 5 Free';
+  color: #01d277;
+  line-height: 15px;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  display: block;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  top: calc(50% - 22px );
+  right: calc(50% - 22px );
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+.sideBar .inform ul.contributors li a:link .avatar .LazyLoad.is-visible:before,
+.sideBar .inform ul.contributors li a:visited .avatar .LazyLoad.is-visible:before {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+.sideBar .inform ul.contributors li a:link .moreInfo,
+.sideBar .inform ul.contributors li a:visited .moreInfo {
+  float: left;
+  width: calc(100% - 45px);
+  padding: 0 0 0 10px;
+}
+.sideBar .inform ul.contributors li a:link .moreInfo .point,
+.sideBar .inform ul.contributors li a:visited .moreInfo .point {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 600;
+}
+.sideBar .inform ul.contributors li a:link .moreInfo p,
+.sideBar .inform ul.contributors li a:visited .moreInfo p {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

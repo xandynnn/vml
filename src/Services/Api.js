@@ -23,6 +23,7 @@ export const getReviews = (movieId) => api.get('/movie/' + movieId + '/reviews' 
 export const getVideos = ( movieId ) => api.get('/movie/' + movieId + '/videos' + config.key + config.lang);
 export const getImages = ( movieId ) => api.get('/movie/' + movieId + '/images' + config.key + config.lang);
 export const getRecommendations = ( movieId ) => api.get('/movie/' + movieId + '/recommendations' + config.key + config.lang);
+export const getKeywords = ( movieId ) => api.get('/movie/' + movieId + '/keywords' + config.key + config.lang);
 
 const apis = {
 	getMovieById,
@@ -32,7 +33,8 @@ const apis = {
 	getReviews,
 	getVideos,
 	getImages,
-	getRecommendations
+	getRecommendations,
+	getKeywords
 }
 
 export default apis;
