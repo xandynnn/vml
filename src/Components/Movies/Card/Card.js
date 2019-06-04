@@ -28,7 +28,7 @@ export default class Card extends Component{
             isLoading: true,
             movie:{},
             favorite: false,
-            watchList: false,
+            watchList: false
         }
         this.handleChangeFavorite = this.handleChangeFavorite.bind(this);
         this.handleChangeWatchList = this.handleChangeWatchList.bind(this);
@@ -39,6 +39,7 @@ export default class Card extends Component{
     }
 
     loadMovie(){
+        console.log(this.props.movie);
         this.setState({
             isLoading: false,
             movie: this.props.movie
@@ -58,17 +59,25 @@ export default class Card extends Component{
     }
 
     render(){
-        let { title, release_date, vote_average, overview, poster_path, id } = this.state.movie;
+        let { title, release_date, vote_average, overview, poster_path, id, backdrop_path } = this.state.movie;
         return(
-            <div className="col-xs-12 col-md-6">
+            <div className="col-xs-12 col-sm-6">
                 { !this.state.isLoading && 
                 <div className="card">
                     <div className="postImage">
                         <Link to={`/movie/${id}`}>
                         <LazyLoad height="270" width="180">
-                        <img
-                            srcSet={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${poster_path} 1x, https://image.tmdb.org/t/p/w370_and_h556_bestv2${poster_path} 2x`}
-                            src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${poster_path}`}  alt={title} />
+                            
+                            <React.Fragment>
+                            { !Util.isMobile() &&
+                                <img srcSet={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${poster_path} 1x, https://image.tmdb.org/t/p/w370_and_h556_bestv2${poster_path} 2x`} src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${poster_path}`}  alt={title} />
+                            }
+                            { Util.isMobile() &&
+                                <img alt={title} srcSet={`https://image.tmdb.org/t/p/w500_and_h282_face${backdrop_path} 1x, https://image.tmdb.org/t/p/w1000_and_h563_face${backdrop_path} 2x`} src={`https://image.tmdb.org/t/p/w500_and_h282_face${backdrop_path}`} />
+                            }
+                            </React.Fragment>
+                            
+
                         </LazyLoad>
                         </Link>
                         <div className="hoverBox">

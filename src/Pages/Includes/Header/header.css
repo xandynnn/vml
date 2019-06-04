@@ -637,6 +637,8 @@
   }
   #header .search .container {
     padding: 0;
+    margin: 0;
+    width: 100%;
   }
   #header .search .container .row {
     margin: 0;

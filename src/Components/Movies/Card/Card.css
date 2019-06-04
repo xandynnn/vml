@@ -423,15 +423,15 @@
   font-size: 15px;
   color: #4d4d4d;
 }
-@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
   .card .postImage {
     width: 100%;
     height: auto;
   }
   .card .postImage .LazyLoad {
     width: 100%;
-    height: auto;
-    min-height: 436px;
+    height: 194px;
+    min-height: auto;
   }
   .card .postImage .LazyLoad img {
     width: 100%;
@@ -440,10 +440,21 @@
   .card .postContent {
     width: 100%;
   }
+  .card .postContent .top .topHead h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .card .postContent .content {
     display: none;
   }
   .card .postContent .footer {
     display: none;
+  }
+}
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
+  .card .postImage .LazyLoad {
+    width: 100%;
+    height: 163.27px;
   }
 }

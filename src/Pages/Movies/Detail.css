@@ -543,6 +543,9 @@
   color: #ffffff;
 }
 @media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
+  .banner {
+    padding-top: 38px;
+  }
   .banner .poster {
     padding: 0;
     width: 100%;
