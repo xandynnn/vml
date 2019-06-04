@@ -6,6 +6,11 @@ import React, { Component } from 'react';
 import api from '~/Services/Api';
 
 //
+//  Plugins
+//
+import LazyLoad from 'react-lazy-load';
+
+//
 //  Styles
 //
 import './Media.less';
@@ -67,7 +72,11 @@ export default class Media extends Component{
                                 .map((video, idx)=>( 
                                 <div key={idx} className="responsiveVideo">
                                     { video.site === "YouTube" &&
-                                        <iframe title={video.name} width="485" height="201" src={`https://www.youtube.com/embed/${video.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                        <LazyLoad>
+                                            <a class="videoThumb" rel="noopener noreferrer" target="_blank" href={`https://www.youtube.com/watch?v=${video.key}`}>
+                                                <img src={`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`} alt="" />
+                                            </a>
+                                        </LazyLoad>
                                     }
                                     { video.site === "Vimeo" &&
                                         <iframe title={video.name} src={`https://player.vimeo.com/video/${video.key}`} width="485" height="201" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>

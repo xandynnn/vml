@@ -180,12 +180,77 @@
 }
 .media .tabContent .scrollBox .responsiveVideo {
   float: left;
-  height: 201px;
+  height: 270px;
 }
 .media .tabContent .scrollBox .responsiveVideo iframe {
-  width: 485px;
-  height: 201px;
+  width: 480px;
+  height: 180px;
   display: block;
+}
+.media .tabContent .scrollBox .responsiveVideo .LazyLoad {
+  background: #081c24;
+  width: 480px;
+  height: 270px;
+  position: relative;
+  min-height: 168px;
+}
+.media .tabContent .scrollBox .responsiveVideo .LazyLoad:before {
+  content: "\f3ff";
+  font: bold normal normal 28px/1 'Font Awesome\ 5 Free';
+  color: #01d277;
+  line-height: 28px;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  top: calc(50% - 40px );
+  right: calc(50% - 40px );
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+.media .tabContent .scrollBox .responsiveVideo .LazyLoad.is-visible:before {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+.media .tabContent .scrollBox .responsiveVideo .LazyLoad a.videoThumb {
+  display: block;
+  width: 480px;
+  height: 270px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+.media .tabContent .scrollBox .responsiveVideo .LazyLoad a.videoThumb:before {
+  content: "\f04b";
+  font: bold normal normal 20px/1 'Font Awesome\ 5 Free';
+  color: #ffffff;
+  line-height: 20px;
+  line-height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 5px solid #ffffff;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.media .tabContent .scrollBox .responsiveVideo .LazyLoad a.videoThumb img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 @media only screen and (max-width: 991px), only screen and (max-device-width: 991px) {
   .media {
@@ -215,5 +280,13 @@
     width: 100%;
     height: auto;
     display: block;
+  }
+  .media .tabContent .scrollBox .responsiveVideo .LazyLoad {
+    width: 320px;
+    height: 180px;
+  }
+  .media .tabContent .scrollBox .responsiveVideo .LazyLoad a.videoThumb {
+    width: 320px;
+    height: 180px;
   }
 }

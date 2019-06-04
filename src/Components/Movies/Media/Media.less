@@ -45,11 +45,67 @@
             width:max-content;
             .responsiveVideo{
                 float:left;
-                height:201px;
+                height:270px;
                 iframe{
-                    width:485px;
-                    height:201px;
+                    width:480px;
+                    height:180px;
                     display:block;
+                }
+                .LazyLoad{
+                    background:@primaria;
+                    width:480px;
+                    height:270px;
+                    position:relative;
+                    min-height:168px;
+                    &:before{
+                        content:"\f3ff";
+                        .setFontAweSolid(28px, @secundaria);
+                        .transition();
+                        display:block;
+                        position:absolute;
+                        width:80px;
+                        height:80px;
+                        line-height:80px;
+                        text-align:center;
+                        top:~"calc(50% - 40px )";
+                        right:~"calc(50% - 40px )";
+                        -webkit-animation:spin 1.5s linear infinite;
+                        -moz-animation:spin 1.5s linear infinite;
+                        animation:spin 1.5s linear infinite;
+                    }
+                    &.is-visible{
+                        &:before{
+                            .opacity(0);
+                        }
+                    }
+                    a{
+                        &.videoThumb{
+                            display:block;
+                            width:480px;
+                            height:270px;
+                            overflow:hidden;
+                            position:relative;
+                            text-align:center;
+                            &:before{
+                                content:"\f04b";
+                                .setFontAweSolid(20px, @branco);
+                                line-height:50px;
+                                position:absolute;
+                                top:50%;
+                                left:50%;
+                                .translate();
+                                width:60px;
+                                height:60px;
+                                border:5px solid @branco;
+                                .borderRadius(50%);
+                            }
+                            img{
+                                display:block;
+                                width:100%;
+                                height:auto;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -86,6 +142,16 @@
                             width:100%;
                             height:auto;
                             display:block;
+                        }
+                        .LazyLoad{
+                            width:320px;
+                            height:180px;
+                            a{
+                                &.videoThumb{
+                                    width:320px;
+                                    height:180px;
+                                }
+                            }
                         }
                     }
                 }
